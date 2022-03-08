@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import styled from "styled-components";
 
 const BookCover = styled.img`
@@ -78,15 +77,6 @@ const GeneralReviewsDiv = styled.div`
 const Home: NextPage = () => {
   return (
     <div>
-      <Head>
-        <title>perfectReads</title>
-        <meta
-          name="description"
-          content="app to manage all your favorite books"
-        />
-        <link rel="icon" href="/img/ico.png" />
-      </Head>
-
       <main>
         <BookDiv>
           <BookCover src="/img/twok.jpg" alt="MDN" />

@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import styled from "styled-components";
+import ReviewCard from "../components/ReviewCard";
 
 const BookCover = styled.img`
   height: 180px;

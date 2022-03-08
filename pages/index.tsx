@@ -1,5 +1,79 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import styled from "styled-components";
+
+const BookCover = styled.img`
+  height: 180px;
+`;
+
+const BookInfoDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+const BookNumbersDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const BookDiv = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+  margin-top: 80px;
+`;
+
+const Score = styled.img`
+  margin-top: 8px;
+  margin-bottom: 20px;
+  height: 25px;
+`;
+
+const BookTittle = styled.h1`
+  font-size: 18px;
+  margin: 0;
+  font-weight: normal;
+`;
+
+const BookAuthor = styled.h2`
+  font-size: 15px;
+  color: #a4a4a3;
+  margin: 0;
+  font-weight: normal;
+`;
+
+const NumberText = styled.p`
+  font-size: 12px;
+  margin: 0;
+  font-weight: normal;
+  color: #5c5c5c;
+`;
+
+const CategoryText = styled.p`
+  font-size: 10px;
+  margin: 0;
+  font-weight: normal;
+  color: #bcbaba;
+`;
+
+const SeparatorLine = styled.hr`
+  width: 328px;
+  border: 1px solid #c3c3c4;
+  display: flex;
+  justify-content: center;
+`;
+
+const LinkBooks = styled.a`
+  font-size: 12px;
+  line-height: 14px;
+  color: #c4c4c3;
+  letter-spacing: 0.11em;
+  padding-left: 50px;
+`;
+
+const GeneralReviewsDiv = styled.div`
+  padding-top: 50px;
+`;
 
 const Home: NextPage = () => {
   return (
@@ -14,7 +88,35 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <h1>PerfectReads</h1>
+        <BookDiv>
+          <BookCover src="/img/twok.jpg" alt="MDN" />
+          <BookInfoDiv>
+            <BookTittle>The Way Of Kings</BookTittle>
+            <BookAuthor>Brandon Sanderson</BookAuthor>
+            <div>
+              <Score src="/img/fav-blank.png" alt="MDN" />
+              <Score src="/img/fav-blank.png" alt="MDN" />
+              <Score src="/img/fav-blank.png" alt="MDN" />
+              <Score src="/img/fav-blank.png" alt="MDN" />
+              <Score src="/img/fav-blank.png" alt="MDN" />
+            </div>
+            <BookNumbersDiv>
+              <div>
+                <NumberText>154k</NumberText>
+                <CategoryText>Ratings</CategoryText>
+              </div>
+              <div>
+                <NumberText>13k</NumberText>
+                <CategoryText>Reviews</CategoryText>
+              </div>
+            </BookNumbersDiv>
+          </BookInfoDiv>
+        </BookDiv>
+        <GeneralReviewsDiv>
+          <LinkBooks href="">GENERAL</LinkBooks>
+          <LinkBooks href="">REVIEWS</LinkBooks>
+          <SeparatorLine />
+        </GeneralReviewsDiv>
       </main>
     </div>
   );

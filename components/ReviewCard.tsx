@@ -73,16 +73,16 @@ const ReviewCard = ({ image, name, review }: ReviewProps) => {
   return (
     <>
       <Card>
-        <ProfileImg src={image} alt="" />
+        <ProfileImg src={image} alt={name} />
         <Username>{name}</Username>
         <Tittle>Review</Tittle>
         <Review>{review}</Review>
         <Score>
-          <ScoreImg src="/img/fav-blank.png" alt="MDN" />
-          <ScoreImg src="/img/fav-blank.png" alt="MDN" />
-          <ScoreImg src="/img/fav-blank.png" alt="MDN" />
-          <ScoreImg src="/img/fav-blank.png" alt="MDN" />
-          <ScoreImg src="/img/fav-blank.png" alt="MDN" />
+          <ScoreImg src="/img/fav-blank.png" alt="star" />
+          <ScoreImg src="/img/fav-blank.png" alt="star" />
+          <ScoreImg src="/img/fav-blank.png" alt="star" />
+          <ScoreImg src="/img/fav-blank.png" alt="star" />
+          <ScoreImg src="/img/fav-blank.png" alt="star" />
         </Score>
       </Card>
     </>

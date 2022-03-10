@@ -16,11 +16,14 @@ const customJestConfig = {
 
   collectCoverageFrom: [
     "**/*.tsx",
+    "**/*.ts",
     "!/*.config.js",
     "!pages/_app.tsx",
     "!coverage/**/*",
     "!.next/**/*",
     "!**/*.test.tsx",
+    "!redux/reducers/index.ts",
+    "!redux/store/*",
   ],
 };
 

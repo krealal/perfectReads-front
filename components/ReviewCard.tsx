@@ -1,10 +1,9 @@
 import styled from "styled-components";
+import Review from "../types/Review";
 
 const Card = styled.div`
-  position: absolute;
   width: 330px;
   height: 153px;
-  left: 30px;
   display: flex;
   background: #f7f7f7;
   justify-content: center;
@@ -21,7 +20,7 @@ const ProfileImg = styled.img`
   width: 50px;
   border-radius: 50%;
   position: absolute;
-  bottom: 130px;
+  bottom: 190px;
 `;
 
 const Username = styled.p`
@@ -57,6 +56,7 @@ const ScoreImg = styled.img`
   margin-bottom: 20px;
   height: 25px;
 `;
+
 const Score = styled.div`
   margin-left: 15px;
   align-self: flex-start;
@@ -68,23 +68,21 @@ type ReviewProps = {
   review: string;
 };
 
-const ReviewCard = ({ image, name, review }: ReviewProps) => {
+const ReviewCard = ({ image, name, review }: ReviewProps): JSX.Element => {
   return (
-    <>
-      <Card>
-        <ProfileImg src={image} alt={name} />
-        <Username>{name}</Username>
-        <Tittle>Review</Tittle>
-        <Review>{review}</Review>
-        <Score>
-          <ScoreImg src="/img/fav-blank.png" alt="star" />
-          <ScoreImg src="/img/fav-blank.png" alt="star" />
-          <ScoreImg src="/img/fav-blank.png" alt="star" />
-          <ScoreImg src="/img/fav-blank.png" alt="star" />
-          <ScoreImg src="/img/fav-blank.png" alt="star" />
-        </Score>
-      </Card>
-    </>
+    <Card>
+      <ProfileImg src={image} alt={name} />
+      <Username>{name}</Username>
+      <Tittle>Review</Tittle>
+      <Review>{review}</Review>
+      <Score>
+        <ScoreImg src="/img/fav-blank.png" alt="star" />
+        <ScoreImg src="/img/fav-blank.png" alt="star" />
+        <ScoreImg src="/img/fav-blank.png" alt="star" />
+        <ScoreImg src="/img/fav-blank.png" alt="star" />
+        <ScoreImg src="/img/fav-blank.png" alt="star" />
+      </Score>
+    </Card>
   );
 };
 

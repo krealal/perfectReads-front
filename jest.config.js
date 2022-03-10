@@ -22,6 +22,8 @@ const customJestConfig = {
     "!coverage/**/*",
     "!.next/**/*",
     "!**/*.test.tsx",
+    "!redux/reducers/index.ts",
+    "!redux/store/*",
   ],
 };
 

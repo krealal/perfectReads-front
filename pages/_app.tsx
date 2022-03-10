@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "@fontsource/roboto";
 import type { AppProps } from "next/app";
 import Navigation from "../components/layout/Navigation";
 import { Provider } from "react-redux";

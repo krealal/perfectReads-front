@@ -18,9 +18,10 @@ const Card = styled.div`
 const ProfileImg = styled.img`
   height: 50px;
   width: 50px;
-  border-radius: 50%;
   position: absolute;
-  bottom: 190px;
+  object-fit: fill;
+  border-radius: 50%;
+  margin-top: -25px;
 `;
 
 const Username = styled.p`
@@ -60,6 +61,8 @@ const ScoreImg = styled.img`
 const Score = styled.div`
   margin-left: 15px;
   align-self: flex-start;
+  position: absolute;
+  margin-top: 110px;
 `;
 
 type ReviewProps = {

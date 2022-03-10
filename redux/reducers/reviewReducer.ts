@@ -7,7 +7,6 @@ const reviewReducer = (reviewState: Review[] = [], action: AnyAction) => {
   switch (action.type) {
     case actionTypes.getReviews:
       newReview = [...action.payload];
-
       break;
     default:
       newReview = [...reviewState];

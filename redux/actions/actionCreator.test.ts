@@ -1,7 +1,7 @@
 import { getReviewAction } from "./actionCreator";
 
 describe("Given a getReviewAction action", () => {
-  describe("When it recevesing an array with 3 robots and an expected action", () => {
+  describe("When it receives an object review with name, image, score and review", () => {
     test("Then it should make loadRobotsAction and compare it with the expected action", () => {
       const review = [
         {

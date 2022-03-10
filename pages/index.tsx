@@ -69,11 +69,13 @@ const SeparatorLine = styled.hr`
 `;
 
 const LinkBooks = styled.a`
+  font-weight: 400;
   font-size: 12px;
   line-height: 14px;
-  color: #c4c4c3;
   letter-spacing: 0.11em;
+  color: #c4c4c3;
   padding-left: 50px;
+  text-decoration: none;
 `;
 
 const GeneralReviewsDiv = styled.div`

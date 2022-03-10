@@ -1,5 +1,11 @@
 import type { NextPage } from "next";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import ReviewCard from "../components/ReviewCard";
+import { loadReviewThunk } from "../redux/thunks/reviewThunks";
+import { Reviews } from "../types/reviewsProps";
+import RootState from "../types/RootState";
 
 const BookCover = styled.img`
   height: 180px;
@@ -74,7 +80,24 @@ const GeneralReviewsDiv = styled.div`
   padding-top: 50px;
 `;
 
+const ReviewsDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 90px;
+`;
+
 const Home: NextPage = () => {
+  const reviewState: Reviews = useSelector<RootState, any>(
+    (state) => state.reviewsList
+  );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadReviewThunk);
+  }, [dispatch]);
+
   return (
     <div>
       <main>
@@ -107,6 +130,16 @@ const Home: NextPage = () => {
           <LinkBooks href="">REVIEWS</LinkBooks>
           <SeparatorLine />
         </GeneralReviewsDiv>
+        <ReviewsDiv>
+          {reviewState.map((aReview, index) => (
+            <ReviewCard
+              name={aReview.name}
+              image={aReview.image}
+              review={aReview.review}
+              key={index}
+            />
+          ))}
+        </ReviewsDiv>
       </main>
     </div>
   );

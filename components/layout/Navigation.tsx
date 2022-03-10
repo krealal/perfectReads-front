@@ -31,6 +31,8 @@ const Navigation: FunctionComponent = ({ children }) => {
         <link rel="icon" href="/img/ico.png" />
       </Head>
 
+      {children}
+
       <NavList>
         <Link href="/">
           <a>
@@ -50,8 +52,6 @@ const Navigation: FunctionComponent = ({ children }) => {
           </a>
         </Link>
       </NavList>
-
-      {children}
     </>
   );
 };

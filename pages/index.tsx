@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import ReviewCard from "../components/ReviewCard";
+import ReviewCard from "../components/ReviewCard/ReviewCard";
 import { loadReviewThunk } from "../redux/thunks/reviewThunks";
 import { Reviews } from "../types/reviewsProps";
 import RootState from "../types/RootState";

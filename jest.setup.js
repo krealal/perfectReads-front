@@ -1,6 +1,9 @@
 import "@testing-library/jest-dom/extend-expect";
+import "whatwg-fetch";
+import { server } from "./mocks/server";
 
-// jest.config.js
-module.exports = {
-  setupFilesAfterEnv: ["./jest.setup.js"],
-};
+beforeAll(() => server.listen());
+
+afterEach(() => server.resetHandlers());
+
+afterAll(() => server.close());

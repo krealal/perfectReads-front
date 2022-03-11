@@ -22,4 +22,13 @@ export const handlers = [
         ])
       )
   ),
+
+  rest.delete(
+    `${process.env.NEXT_PUBLIC_PERFECTREADS_API}/reviews/123`,
+    (req, res, ctx) => res(ctx.status(200), ctx.json({}))
+  ),
+  rest.delete(
+    `${process.env.NEXT_PUBLIC_PERFECTREADS_API}/reviews/12`,
+    (req, res, ctx) => res(ctx.status(404), ctx.json({}))
+  ),
 ];

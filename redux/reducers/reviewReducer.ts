@@ -8,6 +8,13 @@ const reviewReducer = (reviewState: Review[] = [], action: AnyAction | {}) => {
     case actionTypes.getReviews:
       newReview = [...(action as AnyAction).payload];
       break;
+
+    case actionTypes.deleteReview:
+      newReview = (action as AnyAction).filter(
+        (review: Review) => review._id !== (action as AnyAction).id
+      );
+      break;
+
     default:
       newReview = [...reviewState];
   }

@@ -139,6 +139,7 @@ const Home: NextPage = () => {
               image={aReview.image}
               review={aReview.review}
               key={index}
+              id={aReview._id}
             />
           ))}
         </ReviewsDiv>

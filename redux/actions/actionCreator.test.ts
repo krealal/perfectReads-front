@@ -25,14 +25,8 @@ describe("Given a getReviewAction action", () => {
 describe("Given a deleteReviewAction action", () => {
   describe("When it receives an object review with name, image, score and review", () => {
     test("Then it should make deleteReviewAction and compare it with the expected action", () => {
-      const review = [
-        {
-          name: "uwu",
-          image: "src/img/1.png",
-          score: 4,
-          review: "lorem",
-        },
-      ];
+      const review = "2";
+
       const expectedAction = {
         type: "delete-review",
         payload: review,

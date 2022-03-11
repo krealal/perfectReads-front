@@ -1,4 +1,6 @@
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { deleteReviewThunk } from "../../redux/thunks/reviewThunks";
 import Button from "../Button/Button";
 
 const Card = styled.div`
@@ -61,7 +63,7 @@ const ScoreImg = styled.img`
 const Score = styled.div`
   margin-left: 15px;
   align-self: flex-start;
-  position: fixed;
+  position: absolute;
   margin-top: 110px;
 `;
 
@@ -75,14 +77,25 @@ type ReviewProps = {
   image: string;
   name: string;
   review: string;
+  id: string;
 };
 
-const ReviewCard = ({ image, name, review }: ReviewProps): JSX.Element => {
+const ReviewCard = ({ image, name, review, id }: ReviewProps): JSX.Element => {
+  const dispatch = useDispatch();
+  const deleteTask = (id: string) => {
+    dispatch(deleteReviewThunk(id));
+  };
+
   return (
     <>
       <Card>
         <ButtonDiv>
-          <Button actionOnClick={() => {}} image="/img/delete.png" />
+          <Button
+            actionOnClick={() => {
+              deleteTask(id);
+            }}
+            image="/img/delete.png"
+          />
         </ButtonDiv>
 
         <ProfileImg src={image} alt={name} />

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Review from "../types/Review";
+import Button from "../Button/Button";
 
 const Card = styled.div`
   width: 330px;
@@ -61,8 +61,14 @@ const ScoreImg = styled.img`
 const Score = styled.div`
   margin-left: 15px;
   align-self: flex-start;
-  position: absolute;
+  position: fixed;
   margin-top: 110px;
+`;
+
+const ButtonDiv = styled.div`
+  display: flex;
+  position: absolute;
+  right: 42px;
 `;
 
 type ReviewProps = {
@@ -73,19 +79,25 @@ type ReviewProps = {
 
 const ReviewCard = ({ image, name, review }: ReviewProps): JSX.Element => {
   return (
-    <Card>
-      <ProfileImg src={image} alt={name} />
-      <Username>{name}</Username>
-      <Tittle>Review</Tittle>
-      <Review>{review}</Review>
-      <Score>
-        <ScoreImg src="/img/fav-blank.png" alt="star" />
-        <ScoreImg src="/img/fav-blank.png" alt="star" />
-        <ScoreImg src="/img/fav-blank.png" alt="star" />
-        <ScoreImg src="/img/fav-blank.png" alt="star" />
-        <ScoreImg src="/img/fav-blank.png" alt="star" />
-      </Score>
-    </Card>
+    <>
+      <Card>
+        <ButtonDiv>
+          <Button actionOnClick={() => {}} image="/img/delete.png" />
+        </ButtonDiv>
+
+        <ProfileImg src={image} alt={name} />
+        <Username>{name}</Username>
+        <Tittle>Review</Tittle>
+        <Review>{review}</Review>
+        <Score>
+          <ScoreImg src="/img/fav-blank.png" alt="star" />
+          <ScoreImg src="/img/fav-blank.png" alt="star" />
+          <ScoreImg src="/img/fav-blank.png" alt="star" />
+          <ScoreImg src="/img/fav-blank.png" alt="star" />
+          <ScoreImg src="/img/fav-blank.png" alt="star" />
+        </Score>
+      </Card>
+    </>
   );
 };
 

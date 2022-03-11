@@ -21,4 +21,18 @@ describe("given a home page ", () => {
       expect(renderTittle).toBeInTheDocument();
     });
   });
+
+  describe("When it's rendered component", () => {
+    test("Then it should display autor 'tupac' and image name naruto", async () => {
+      render(
+        <Provider store={store}>
+          <Home />
+        </Provider>
+      );
+
+      const test = await screen.findByText("marta");
+
+      expect(test).toBeInTheDocument();
+    });
+  });
 });

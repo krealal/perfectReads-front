@@ -1,7 +1,6 @@
-import "whatwg-fetch";
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import Home from "../pages/index";
+import Custom404 from "../pages/404";
 import store from "../redux/store";
 
 describe("given a home page ", () => {
@@ -9,30 +8,16 @@ describe("given a home page ", () => {
     test("then it should find h1 /The Way Of Kings/ in the document", async () => {
       render(
         <Provider store={store}>
-          <Home />
+          <Custom404 />
         </Provider>
       );
-      const bookTittle = "The Way Of Kings";
+      const notFound = "404";
 
       const renderTittle = await screen.getByRole("heading", {
-        name: bookTittle,
+        name: notFound,
       });
 
       expect(renderTittle).toBeInTheDocument();
-    });
-  });
-
-  describe("When it's rendered component", () => {
-    test("Then it should display autor 'tupac' and image name naruto", async () => {
-      render(
-        <Provider store={store}>
-          <Home />
-        </Provider>
-      );
-
-      const test = await screen.findByText("marta");
-
-      expect(test).toBeInTheDocument();
     });
   });
 });

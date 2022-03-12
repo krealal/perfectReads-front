@@ -16,7 +16,7 @@ const reviewReducer = (
 
     case actionTypes.deleteReview:
       newReview = reviewState.filter(
-        (buzz) => buzz.id !== (action as TypeOfAction).payload
+        (review) => review._id !== (action as TypeOfAction).payload
       );
       break;
 

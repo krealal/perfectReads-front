@@ -10,10 +10,11 @@ export const loadReviewThunk = async (dispatch: Dispatch) => {
   return dispatch(getReviewAction(reviewList));
 };
 
-export const deleteReviewThunk = (id: string) => async (dispatch: Dispatch) => {
-  const response = await fetch(`${url}/reviews/${id}`, {
-    method: "DELETE",
-  });
-  if (!response.ok) return;
-  dispatch(deleteReviewAction(id));
-};
+export const deleteReviewThunk =
+  (_id: string) => async (dispatch: Dispatch) => {
+    const response = await fetch(`${url}/reviews/${_id}`, {
+      method: "DELETE",
+    });
+    if (!response.ok) return;
+    dispatch(deleteReviewAction(_id));
+  };

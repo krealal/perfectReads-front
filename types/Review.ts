@@ -3,8 +3,7 @@ interface Review {
   image: string;
   score: number;
   review: string;
-  id?: string;
-  _id?: string;
+  _id: string;
 }
 
 export default Review;

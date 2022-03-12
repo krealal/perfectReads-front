@@ -89,7 +89,7 @@ const ReviewsDiv = styled.div`
   margin-bottom: 90px;
 `;
 
-const Home: NextPage = () => {
+const Home: NextPage = (): JSX.Element => {
   const reviewState: Reviews = useSelector<RootState, any>(
     (state) => state.reviewsList
   );
@@ -139,6 +139,7 @@ const Home: NextPage = () => {
               image={aReview.image}
               review={aReview.review}
               key={index}
+              _id={aReview._id}
             />
           ))}
         </ReviewsDiv>

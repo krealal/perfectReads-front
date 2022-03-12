@@ -10,6 +10,7 @@ describe("given a reviewReducer", () => {
           image: "src/img/1.png",
           score: 4,
           review: "lorem",
+          _id: "3",
         },
       ];
       const newReview = [
@@ -18,6 +19,7 @@ describe("given a reviewReducer", () => {
           image: "src/img/2.png",
           score: 1,
           review: "lorem2",
+          _id: "4",
         },
       ];
 
@@ -43,14 +45,14 @@ describe("given a reviewReducer", () => {
           image: "src/img/1.png",
           score: 4,
           review: "lorem",
-          id: "2",
+          _id: "2",
         },
         {
           name: "uwu",
           image: "src/img/1.png",
           score: 4,
           review: "lorem",
-          id: "3",
+          _id: "3",
         },
       ];
       const idToDelete = "2";

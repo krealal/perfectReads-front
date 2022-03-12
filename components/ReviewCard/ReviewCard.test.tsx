@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import store from "../../redux/store";
 import ReviewCard from "./ReviewCard";
@@ -10,7 +11,7 @@ describe("Given a reviewCard component", () => {
         image: "/img/fav-blank.png",
         name: "marc stars",
         review: "lorem ipsum",
-        id: "2",
+        _id: "2",
       };
 
       render(
@@ -20,7 +21,7 @@ describe("Given a reviewCard component", () => {
             name={review.name}
             review={review.image}
             key={1}
-            id={review.id}
+            _id={review._id}
           />
         </Provider>
       );

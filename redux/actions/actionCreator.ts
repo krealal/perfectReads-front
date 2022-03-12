@@ -7,7 +7,7 @@ export const getReviewAction = (review: Reviews): TypeOfAction => ({
   payload: review,
 });
 
-export const deleteReviewAction = (id: string): TypeOfAction => ({
+export const deleteReviewAction = (_id: string): TypeOfAction => ({
   type: actionTypes.deleteReview,
-  payload: id,
+  payload: _id,
 });

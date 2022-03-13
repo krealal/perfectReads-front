@@ -1,5 +1,9 @@
 import "whatwg-fetch";
-import { deleteReviewThunk, loadReviewThunk } from "./reviewThunks";
+import {
+  createReviewThunk,
+  deleteReviewThunk,
+  loadReviewThunk,
+} from "./reviewThunks";
 import { server } from "../../mocks/server";
 
 // Establish API mocking before all tests.
@@ -46,6 +50,26 @@ describe("Given a deleteReviewThunk function", () => {
       await deleteThunk(dispatch);
 
       expect(dispatch).not.toBeCalled();
+    });
+  });
+});
+
+describe("Given a createReviewThunk", () => {
+  describe("When its invoked with a singleReview", () => {
+    test("Then it should dispatch a function", async () => {
+      const dispatch = jest.fn();
+      const singleReview = {
+        name: "uwu",
+        image: "src/img/1.png",
+        score: 4,
+        review: "lorem",
+        _id: "5",
+      };
+      const createReview = createReviewThunk(singleReview);
+
+      await createReview(dispatch);
+
+      expect(dispatch).toHaveBeenCalled();
     });
   });
 });

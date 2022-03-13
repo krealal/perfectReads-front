@@ -25,6 +25,7 @@ const customJestConfig = {
     "!**/*.test.tsx",
     "!redux/reducers/index.ts",
     "!redux/store/*",
+    "!**/*.style.ts",
   ],
 };
 

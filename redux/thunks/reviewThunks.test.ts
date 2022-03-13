@@ -59,11 +59,11 @@ describe("Given a createReviewThunk", () => {
     test("Then it should dispatch a function", async () => {
       const dispatch = jest.fn();
       const singleReview = {
-        name: "uwu",
-        image: "src/img/1.png",
-        score: 4,
-        review: "lorem",
-        _id: "5",
+        name: "marta",
+        image: "src/image/2.png",
+        score: 1,
+        review: "merol",
+        _id: "1233124",
       };
       const createReview = createReviewThunk(singleReview);
 

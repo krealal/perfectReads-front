@@ -27,12 +27,16 @@ export const deleteReviewThunk =
 export const createReviewThunk =
   (review: Review) => async (dispatch: Dispatch) => {
     const response = await fetch(`${url}/reviews/new-post`, {
-      method: "post",
+      method: "POST",
       mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(review),
     });
+    console.log("buenas fetch");
 
     if (!response.ok) return;
-    const newRobot = await response.json();
-    dispatch(createReviewAction(newRobot));
+    const newReview = await response.json();
+    dispatch(createReviewAction(newReview));
   };

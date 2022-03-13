@@ -20,6 +20,10 @@ const reviewReducer = (
       );
       break;
 
+    case actionTypes.createReview:
+      newReview = [...reviewState, (action as AnyAction).payload];
+      break;
+
     default:
       newReview = [...reviewState];
   }

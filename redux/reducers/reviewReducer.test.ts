@@ -1,4 +1,8 @@
-import { deleteReviewAction, getReviewAction } from "../actions/actionCreator";
+import {
+  createReviewAction,
+  deleteReviewAction,
+  getReviewAction,
+} from "../actions/actionCreator";
 import reviewReducer from "./reviewReducer";
 
 describe("given a reviewReducer", () => {
@@ -63,6 +67,42 @@ describe("given a reviewReducer", () => {
       const newReviews = reviewReducer(reviews, action);
 
       expect(newReviews).not.toContain(expectedRemovedReview);
+      expect(newReviews).toHaveLength(expectedLength);
+    });
+  });
+
+  describe("When it's called with an array of reviews and createReviewAction and a singleReview ", () => {
+    test("Then the new array will contain the 3 reviews ", () => {
+      const reviews = [
+        {
+          name: "uwu",
+          image: "src/img/1.png",
+          score: 4,
+          review: "lorem",
+          _id: "2",
+        },
+        {
+          name: "uwu",
+          image: "src/img/1.png",
+          score: 4,
+          review: "lorem",
+          _id: "3",
+        },
+      ];
+      const singleReview = [
+        {
+          name: "uwu",
+          image: "src/img/1.png",
+          score: 4,
+          review: "lorem",
+          _id: "5",
+        },
+      ];
+      const action = createReviewAction(singleReview);
+      const expectedLength = 3;
+
+      const newReviews = reviewReducer(reviews, action);
+
       expect(newReviews).toHaveLength(expectedLength);
     });
   });

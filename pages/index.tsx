@@ -1,7 +1,9 @@
 import type { NextPage } from "next";
+import Router from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import Button from "../components/Button/Button";
 import ReviewCard from "../components/ReviewCard/ReviewCard";
 import { loadReviewThunk } from "../redux/thunks/reviewThunks";
 import { Reviews } from "../types/reviewsProps";
@@ -74,12 +76,16 @@ const LinkBooks = styled.a`
   line-height: 14px;
   letter-spacing: 0.11em;
   color: #c4c4c3;
-  padding-left: 50px;
+
   text-decoration: none;
 `;
 
 const GeneralReviewsDiv = styled.div`
   padding-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
 `;
 
 const ReviewsDiv = styled.div`
@@ -104,16 +110,16 @@ const Home: NextPage = (): JSX.Element => {
     <div>
       <main>
         <BookDiv>
-          <BookCover src="/img/twok.jpg" alt="MDN" />
+          <BookCover src="/img/twok.jpg" alt="rating star" />
           <BookInfoDiv>
             <BookTittle>The Way Of Kings</BookTittle>
             <BookAuthor>Brandon Sanderson</BookAuthor>
             <div>
-              <Score src="/img/fav-blank.png" alt="MDN" />
-              <Score src="/img/fav-blank.png" alt="MDN" />
-              <Score src="/img/fav-blank.png" alt="MDN" />
-              <Score src="/img/fav-blank.png" alt="MDN" />
-              <Score src="/img/fav-blank.png" alt="MDN" />
+              <Score src="/img/fav-blank.png" alt="rating star" />
+              <Score src="/img/fav-blank.png" alt="rating star" />
+              <Score src="/img/fav-blank.png" alt="rating star" />
+              <Score src="/img/fav-blank.png" alt="rating star" />
+              <Score src="/img/fav-blank.png" alt="rating star" />
             </div>
             <BookNumbersDiv>
               <div>
@@ -130,8 +136,14 @@ const Home: NextPage = (): JSX.Element => {
         <GeneralReviewsDiv>
           <LinkBooks href="">GENERAL</LinkBooks>
           <LinkBooks href="">REVIEWS</LinkBooks>
-          <SeparatorLine />
+          <Button
+            actionOnClick={() => {
+              Router.push("/new-review");
+            }}
+            image="/img/plus.png"
+          />
         </GeneralReviewsDiv>
+        <SeparatorLine />
         <ReviewsDiv>
           {reviewState.map((aReview, index) => (
             <ReviewCard

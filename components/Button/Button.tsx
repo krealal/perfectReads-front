@@ -5,7 +5,7 @@ interface ButtonProps {
   image: string;
 }
 
-const ButtonDelete = styled.button`
+const ButtonGeneric = styled.button`
   margin-left: 20px;
   margin-top: 5px;
   border: 0;
@@ -18,13 +18,13 @@ const ButtonImage = styled.img`
 const Button = ({ actionOnClick, image }: ButtonProps): JSX.Element => {
   return (
     <>
-      <ButtonDelete
+      <ButtonGeneric
         onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
           actionOnClick()
         }
       >
         <ButtonImage src={image} alt={`${image} button`}></ButtonImage>
-      </ButtonDelete>
+      </ButtonGeneric>
     </>
   );
 };

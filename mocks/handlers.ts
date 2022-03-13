@@ -12,12 +12,14 @@ export const handlers = [
             image: "src/image/1.png",
             score: 4,
             review: "lorem",
+            _id: "123",
           },
           {
             name: "marta",
             image: "src/image/2.png",
             score: 1,
             review: "merol",
+            _id: "1233124",
           },
         ])
       )

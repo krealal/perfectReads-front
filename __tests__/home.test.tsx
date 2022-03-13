@@ -23,7 +23,7 @@ describe("given a home page ", () => {
   });
 
   describe("When it's rendered component", () => {
-    test("Then it should display autor 'tupac' and image name naruto", async () => {
+    test("Then it should find marta in the document", async () => {
       render(
         <Provider store={store}>
           <Home />

@@ -34,7 +34,6 @@ export const createReviewThunk =
       },
       body: JSON.stringify(review),
     });
-    console.log("buenas fetch");
 
     if (!response.ok) return;
     const newReview = await response.json();

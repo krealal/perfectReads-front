@@ -33,4 +33,20 @@ export const handlers = [
     `${process.env.NEXT_PUBLIC_PERFECTREADS_API}/reviews/12`,
     (req, res, ctx) => res(ctx.status(404), ctx.json({}))
   ),
+
+  rest.post(
+    `${process.env.NEXT_PUBLIC_PERFECTREADS_API}/reviews/new-post`,
+    (req, res, ctx) => {
+      return res(
+        ctx.status(201),
+        ctx.json({
+          name: "marta",
+          image: "src/image/2.png",
+          score: 1,
+          review: "merol",
+          _id: "1233124",
+        })
+      );
+    }
+  ),
 ];

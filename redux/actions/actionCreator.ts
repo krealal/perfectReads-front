@@ -13,6 +13,6 @@ export const deleteReviewAction = (_id: string): TypeOfAction => ({
 });
 
 export const createReviewAction = (review: Reviews): TypeOfAction => ({
-  type: actionTypes.deleteReview,
+  type: actionTypes.createReview,
   payload: review,
 });

@@ -8,7 +8,7 @@ const Card = styled.div`
   width: 330px;
   height: 153px;
   display: flex;
-  background: #f7f7f7;
+  background: #dedede;
   justify-content: center;
   border-radius: 4px;
   margin-top: 55px;
@@ -41,7 +41,7 @@ const Tittle = styled.p`
   font-size: 10px;
   line-height: 12px;
   letter-spacing: 0.11em;
-  color: #c4c4c3;
+  color: #737373;
   margin: 0;
   margin-bottom: 10px;
 `;

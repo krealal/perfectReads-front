@@ -11,7 +11,6 @@ const RegisterForm = (): JSX.Element => {
     review: "",
     score: 1,
     image: "",
-    _id: "",
   };
   const [formData, setFormData] = useState(blannkFields);
 

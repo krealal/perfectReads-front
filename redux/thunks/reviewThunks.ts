@@ -1,5 +1,5 @@
 import { Dispatch } from "redux";
-import Review from "../../types/Review";
+import { Review } from "../../types/Review";
 import {
   createReviewAction,
   deleteReviewAction,
@@ -35,7 +35,6 @@ export const createReviewThunk =
       },
       body: JSON.stringify(review),
     });
-
     if (!response.ok) return;
     const newReview = await response.json();
     dispatch(createReviewAction(newReview));

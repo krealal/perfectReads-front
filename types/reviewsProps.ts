@@ -1,6 +1,7 @@
-import Review from "./Review";
+import { Review, ReviewForm } from "./Review";
 
 export type Reviews = Review[];
+export type ReviewsForm = ReviewForm[];
 
 export interface reviewsProps {
   type: string;

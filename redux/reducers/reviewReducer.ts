@@ -1,11 +1,11 @@
 import { AnyAction } from "redux";
-import Review from "../../types/Review";
+import { Review, ReviewForm } from "../../types/Review";
 import TypeOfAction from "../../types/TypeOfAction";
 
 import actionTypes from "../actions/actionTypes";
 
 const reviewReducer = (
-  reviewState: Review[] = [],
+  reviewState: Review[] | ReviewForm[] = [],
   action: TypeOfAction | {}
 ) => {
   let newReview;
@@ -15,7 +15,7 @@ const reviewReducer = (
       break;
 
     case actionTypes.deleteReview:
-      newReview = reviewState.filter(
+      newReview = (reviewState as ReviewForm[]).filter(
         (review) => review._id !== (action as TypeOfAction).payload
       );
       break;
@@ -25,7 +25,7 @@ const reviewReducer = (
       break;
 
     case actionTypes.editReview:
-      newReview = reviewState.map((review) =>
+      newReview = (reviewState as ReviewForm[]).map((review) =>
         review._id === (action as AnyAction)._id
           ? (action as AnyAction).review
           : review

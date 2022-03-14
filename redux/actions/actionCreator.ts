@@ -16,3 +16,8 @@ export const createReviewAction = (review: Reviews): TypeOfAction => ({
   type: actionTypes.createReview,
   payload: review,
 });
+
+export const updateReviewAction = (_id: string): TypeOfAction => ({
+  type: actionTypes.editReview,
+  payload: _id,
+});

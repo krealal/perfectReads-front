@@ -3,11 +3,11 @@ import Router from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import Button from "../components/Button/Button";
 import ReviewCard from "../components/ReviewCard/ReviewCard";
 import { loadReviewThunk } from "../redux/thunks/reviewThunks";
 import { Reviews, ReviewsForm } from "../types/reviewsProps";
 import RootState from "../types/RootState";
+import Button from "@mui/material/Button";
 
 const BookCover = styled.img`
   height: 180px;
@@ -133,12 +133,9 @@ const Home: NextPage = (): JSX.Element => {
         <GeneralReviewsDiv>
           <LinkBooks href="">GENERAL</LinkBooks>
           <LinkBooks href="">REVIEWS</LinkBooks>
-          <Button
-            actionOnClick={() => {
-              Router.push("/new-review");
-            }}
-            image="/img/plus.png"
-          />
+          <Button variant="contained" href="/new-review" size="small">
+            + Review
+          </Button>
         </GeneralReviewsDiv>
         <SeparatorLine />
         <ReviewsDiv>

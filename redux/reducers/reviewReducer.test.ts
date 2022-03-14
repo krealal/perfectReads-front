@@ -130,4 +130,49 @@ describe("given a reviewReducer", () => {
       expect(newReviews).toHaveLength(expectedLength);
     });
   });
+
+  describe("When it's called with an array of reviews and an aciton with type update and a review with matching id modified", () => {
+    test("Then it should return a new robots array with the modified robot", () => {
+      const review = [
+        {
+          name: "uwu",
+          image: "src/img/1.png",
+          score: 4,
+          review: "lorem",
+          _id: "2",
+        },
+        {
+          name: "asd",
+          image: "src/img/1.png",
+          score: 1,
+          review: "lorem",
+          _id: "4",
+        },
+      ];
+      const newReview = [
+        {
+          name: "uwu",
+          image: "src/img/1.png",
+          score: 4,
+          review: "lorem",
+          _id: "2",
+        },
+      ];
+
+      const expectedLength = 2;
+      const expectedModifiedReview = {
+        name: "awa",
+        image: "src/img/1.png",
+        score: 4,
+        review: "lorem",
+        _id: "2",
+      };
+      const action = updateReviewAction("2");
+
+      const newReviews = reviewReducer(review, action);
+
+      expect(newReviews).toHaveLength(expectedLength);
+      expect(newReviews).not.toContain(expectedModifiedReview);
+    });
+  });
 });

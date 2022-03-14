@@ -41,15 +41,17 @@ export const createReviewThunk =
     dispatch(createReviewAction(newReview));
   };
 
-export const updateRobotThunk = (_id: string) => async (dispatch: Dispatch) => {
-  const reviewJson = JSON.stringify(_id);
-  const response = await fetch(`${url}/reviews/${_id}`, {
-    method: "put",
-    headers: { "Content-Type": "application/json" },
-    body: reviewJson,
-  });
+export const updateReviewThunk =
+  (_id: string) => async (dispatch: Dispatch) => {
+    const reviewJson = JSON.stringify(_id);
+    const response = await fetch(`${url}/reviews/${_id}`, {
+      method: "PUT",
+      mode: "cors",
+      headers: { "Content-Type": "application/json" },
+      body: reviewJson,
+    });
 
-  if (!response.ok) return;
-  const updatedReview = await response.json();
-  dispatch(updateReviewAction(updatedReview));
-};
+    if (!response.ok) return;
+    const updatedReview = await response.json();
+    dispatch(updateReviewAction(updatedReview));
+  };

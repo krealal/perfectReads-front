@@ -3,6 +3,7 @@ import {
   createReviewThunk,
   deleteReviewThunk,
   loadReviewThunk,
+  updateReviewThunk,
 } from "./reviewThunks";
 import { server } from "../../mocks/server";
 
@@ -68,6 +69,20 @@ describe("Given a createReviewThunk", () => {
       const createReview = createReviewThunk(singleReview);
 
       await createReview(dispatch);
+
+      expect(dispatch).toHaveBeenCalled();
+    });
+  });
+});
+
+describe("Given a updateReviewThunk function", () => {
+  describe("When it is called with id 123", () => {
+    test("Then it should dispatch a function", async () => {
+      const dispatch = jest.fn();
+      const id = "123";
+
+      const updateThunk = updateReviewThunk(id);
+      await updateThunk(dispatch);
 
       expect(dispatch).toHaveBeenCalled();
     });

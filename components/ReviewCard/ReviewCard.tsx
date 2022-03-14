@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { deleteReviewThunk } from "../../redux/thunks/reviewThunks";
 import Button from "../Button/Button";
+import Router from "next/router";
 
 const Card = styled.div`
   width: 330px;
@@ -95,6 +96,13 @@ const ReviewCard = ({ image, name, review, _id }: ReviewProps): JSX.Element => {
               deleteTask(_id);
             }}
             image="/img/delete.png"
+          />
+
+          <Button
+            actionOnClick={() => {
+              Router.push("/new-review");
+            }}
+            image="/img/edit.png"
           />
         </ButtonDiv>
 

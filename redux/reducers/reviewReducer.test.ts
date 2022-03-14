@@ -2,6 +2,7 @@ import {
   createReviewAction,
   deleteReviewAction,
   getReviewAction,
+  updateReviewAction,
 } from "../actions/actionCreator";
 import reviewReducer from "./reviewReducer";
 
@@ -103,6 +104,29 @@ describe("given a reviewReducer", () => {
 
       const newReviews = reviewReducer(reviews, action);
 
+      expect(newReviews).toHaveLength(expectedLength);
+    });
+  });
+
+  describe("When it receibes a review with id 2", () => {
+    test("Then it should foind id 2 and launch reviewAction", () => {
+      const review = [
+        {
+          name: "uwu",
+          image: "src/img/1.png",
+          score: 4,
+          review: "lorem",
+          _id: "2",
+        },
+      ];
+      const idToUpdate = "2";
+      const expectedLength = 1;
+      const expectedupdatedReview = { id: "2" };
+      const action = updateReviewAction(idToUpdate);
+
+      const newReviews = reviewReducer(review, action);
+
+      expect(newReviews).not.toContain(expectedupdatedReview);
       expect(newReviews).toHaveLength(expectedLength);
     });
   });

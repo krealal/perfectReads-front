@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { createReviewThunk } from "../../redux/thunks/reviewThunks";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
@@ -19,7 +16,7 @@ const TittleForm = styled.h1`
   margin: 0px;
 `;
 
-interface formProps {
+interface FormProps {
   tittle: string;
   buttonText: string;
   submit: any;
@@ -31,7 +28,7 @@ const Form = ({
   buttonText,
   submit,
   changeData,
-}: formProps): JSX.Element => {
+}: FormProps): JSX.Element => {
   return (
     <>
       <Box

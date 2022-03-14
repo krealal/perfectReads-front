@@ -1,11 +1,10 @@
 import type { NextPage } from "next";
-import Router from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import ReviewCard from "../components/ReviewCard/ReviewCard";
 import { loadReviewThunk } from "../redux/thunks/reviewThunks";
-import { Reviews, ReviewsForm } from "../types/reviewsProps";
+import { ReviewsForm } from "../types/reviewsProps";
 import RootState from "../types/RootState";
 import Button from "@mui/material/Button";
 

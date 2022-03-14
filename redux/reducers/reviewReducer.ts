@@ -24,6 +24,14 @@ const reviewReducer = (
       newReview = [...reviewState, (action as AnyAction).payload];
       break;
 
+    case actionTypes.editReview:
+      newReview = reviewState.map((review) =>
+        review._id === (action as AnyAction)._id
+          ? (action as AnyAction).review
+          : review
+      );
+      break;
+
     default:
       newReview = [...reviewState];
   }

@@ -2,14 +2,14 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import store from "../../redux/store";
-import RegisterForm from "./NewReviewForm";
+import Form from "./Form";
 
 describe("given a registerForm component", () => {
   describe("when its rendered", () => {
     test("then it should be find the heading 'new review'", () => {
       render(
         <Provider store={store}>
-          <RegisterForm />
+          <Form buttonText="add" tittle="new review" />
         </Provider>
       );
 
@@ -25,7 +25,7 @@ describe("given a registerForm component", () => {
 
       render(
         <Provider store={store}>
-          <RegisterForm />
+          <Form buttonText="add" tittle="new review" />
         </Provider>
       );
 

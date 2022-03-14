@@ -6,7 +6,7 @@ import styled from "styled-components";
 import Button from "../components/Button/Button";
 import ReviewCard from "../components/ReviewCard/ReviewCard";
 import { loadReviewThunk } from "../redux/thunks/reviewThunks";
-import { Reviews } from "../types/reviewsProps";
+import { Reviews, ReviewsForm } from "../types/reviewsProps";
 import RootState from "../types/RootState";
 
 const BookCover = styled.img`
@@ -93,7 +93,7 @@ const ReviewsDiv = styled.div`
 `;
 
 const Home: NextPage = (): JSX.Element => {
-  const reviewState: Reviews = useSelector<RootState, any>(
+  const reviewState: ReviewsForm = useSelector<RootState, any>(
     (state) => state.reviewsList
   );
 

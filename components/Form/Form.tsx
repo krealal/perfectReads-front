@@ -16,7 +16,7 @@ const TittleForm = styled.h1`
   margin: 0px;
 `;
 
-interface formProps {
+interface FormProps {
   tittle: string;
   buttonText: string;
   submit: any;
@@ -28,7 +28,7 @@ const Form = ({
   buttonText,
   submit,
   changeData,
-}: formProps): JSX.Element => {
+}: FormProps): JSX.Element => {
   return (
     <>
       <Box

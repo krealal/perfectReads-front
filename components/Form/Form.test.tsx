@@ -19,9 +19,9 @@ describe("given a registerForm component", () => {
         </Provider>
       );
 
-      const hola = screen.getByRole("heading", { name: /new review/i });
+      const tittle = screen.getByRole("heading", { name: /new review/i });
 
-      expect(hola).toBeInTheDocument();
+      expect(tittle).toBeInTheDocument();
     });
   });
 

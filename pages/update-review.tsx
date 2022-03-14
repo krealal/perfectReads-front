@@ -22,14 +22,9 @@ const UpdateReview = (): JSX.Element => {
   };
   const [formData, setFormData] = useState(blannkFields);
 
-  const changeData = (event: any) => {
-    setFormData({ ...formData, [event.target.id]: event.target.value });
-  };
+  const changeData = () => {};
 
-  const form = (event: any) => {
-    event.preventDefault();
-    dispatch(createReviewThunk(formData));
-  };
+  const form = () => {};
 
   return (
     <>

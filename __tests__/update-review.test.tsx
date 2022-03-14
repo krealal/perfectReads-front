@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import UpdateReview from "../pages/update-review";
 import store from "../redux/store";
 
-describe("given a new-review page", () => {
+describe("given a update review page", () => {
   describe("when its rendered", () => {
     test("then it should find a textbox and a button in the document", () => {
       render(

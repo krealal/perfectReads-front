@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import store from "../../redux/store";
@@ -7,9 +7,15 @@ import Form from "./Form";
 describe("given a registerForm component", () => {
   describe("when its rendered", () => {
     test("then it should be find the heading 'new review'", () => {
+      const submit = jest.fn();
       render(
         <Provider store={store}>
-          <Form buttonText="add" tittle="new review" />
+          <Form
+            buttonText="add"
+            tittle="new review"
+            submit={submit}
+            changeData={submit}
+          />
         </Provider>
       );
 
@@ -22,15 +28,42 @@ describe("given a registerForm component", () => {
   describe("when its rendered", () => {
     test("then it should be find the heading 'new review'", () => {
       const inputedText = "hola buenos días";
-
+      const submit = jest.fn();
       render(
         <Provider store={store}>
-          <Form buttonText="add" tittle="new review" />
+          <Form
+            buttonText="add"
+            tittle="new review"
+            submit={submit}
+            changeData={submit}
+          />
         </Provider>
       );
 
       const input = screen.getByRole("textbox", { name: /name/i });
       userEvent.type(input, inputedText);
+    });
+  });
+
+  describe("when its rendered and finds button with accesible name 'add' and its clicked", () => {
+    test("then the button should be called", () => {
+      const submit = jest.fn();
+      render(
+        <Provider store={store}>
+          <Form
+            buttonText="add"
+            tittle="new review"
+            submit={submit}
+            changeData={submit}
+          />
+        </Provider>
+      );
+
+      const button = screen.getByRole("button", { name: /add/i });
+
+      fireEvent.click(button);
+
+      expect(submit).toHaveBeenCalled();
     });
   });
 });

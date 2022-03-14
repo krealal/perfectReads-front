@@ -83,8 +83,8 @@ type ReviewProps = {
 
 const ReviewCard = ({ image, name, review, _id }: ReviewProps): JSX.Element => {
   const dispatch = useDispatch();
-  const deleteTask = (_id: string) => {
-    dispatch(deleteReviewThunk(_id));
+  const deleteTask = (id: string) => {
+    dispatch(deleteReviewThunk(id));
   };
 
   return (

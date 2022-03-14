@@ -4,6 +4,7 @@ import {
   createReviewAction,
   deleteReviewAction,
   getReviewAction,
+  updateReviewAction,
 } from "../actions/actionCreator";
 
 const url: string = `${process.env.NEXT_PUBLIC_PERFECTREADS_API}`;
@@ -38,4 +39,19 @@ export const createReviewThunk =
     if (!response.ok) return;
     const newReview = await response.json();
     dispatch(createReviewAction(newReview));
+  };
+
+export const updateReviewThunk =
+  (_id: string) => async (dispatch: Dispatch) => {
+    const reviewJson = JSON.stringify(_id);
+    const response = await fetch(`${url}/reviews/${_id}`, {
+      method: "PUT",
+      mode: "cors",
+      headers: { "Content-Type": "application/json" },
+      body: reviewJson,
+    });
+
+    if (!response.ok) return;
+    const updatedReview = await response.json();
+    dispatch(updateReviewAction(updatedReview));
   };

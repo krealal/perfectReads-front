@@ -49,4 +49,20 @@ export const handlers = [
       );
     }
   ),
+
+  rest.put(
+    `${process.env.NEXT_PUBLIC_PERFECTREADS_API}/reviews/123`,
+    (req, res, ctx) => {
+      return res(
+        ctx.status(201),
+        ctx.json({
+          name: "luis",
+          image: "src/image/1.png",
+          score: 4,
+          review: "lorem",
+          _id: "123",
+        })
+      );
+    }
+  ),
 ];

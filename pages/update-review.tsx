@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import RegisterForm from "../components/NewReviewForm/NewReviewForm";
 
-const updateReview = (): JSX.Element => {
+const UpdateReview = (): JSX.Element => {
   const RegisterCont = styled.section`
     height: 100vh;
     display: flex;
@@ -18,4 +18,4 @@ const updateReview = (): JSX.Element => {
   );
 };
 
-export default updateReview;
+export default UpdateReview;

@@ -51,9 +51,6 @@ const BookAuthor = styled.h2`
 
 const NumberText = styled.p`
   font-size: 12px;
-  margin: 0;
-  font-weight: normal;
-  color: #5c5c5c;
 `;
 
 const CategoryText = styled.p`

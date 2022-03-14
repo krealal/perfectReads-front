@@ -22,7 +22,7 @@ const ProfileImg = styled.img`
   height: 50px;
   width: 50px;
   position: absolute;
-  object-fit: fill;
+  object-fit: cover;
   border-radius: 50%;
   margin-top: -25px;
 `;

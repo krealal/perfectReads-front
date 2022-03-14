@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import Form from "../components/Form/Form";
-import { createReviewThunk } from "../redux/thunks/reviewThunks";
 
 const RegisterCont = styled.section`
   height: 100vh;

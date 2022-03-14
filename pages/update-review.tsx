@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import RegisterForm from "../components/NewReviewForm/NewReviewForm";
+import Form from "../components/Form/Form";
 
 const UpdateReview = (): JSX.Element => {
   const RegisterCont = styled.section`
@@ -12,7 +12,7 @@ const UpdateReview = (): JSX.Element => {
   return (
     <>
       <RegisterCont>
-        <RegisterForm />
+        <Form buttonText="Update" tittle="Update Review" />
       </RegisterCont>
     </>
   );

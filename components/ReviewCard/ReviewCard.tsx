@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { deleteReviewThunk } from "../../redux/thunks/reviewThunks";
 import Button from "../Button/Button";
 import Router from "next/router";
+import { Rating } from "@mui/material";
 
 const Card = styled.div`
   width: 330px;
@@ -79,9 +80,16 @@ type ReviewProps = {
   name: string;
   review: string;
   id: string;
+  score: number;
 };
 
-const ReviewCard = ({ image, name, review, id }: ReviewProps): JSX.Element => {
+const ReviewCard = ({
+  image,
+  name,
+  review,
+  id,
+  score,
+}: ReviewProps): JSX.Element => {
   const dispatch = useDispatch();
   const deleteTask = (id: string) => {
     dispatch(deleteReviewThunk(id));
@@ -111,11 +119,7 @@ const ReviewCard = ({ image, name, review, id }: ReviewProps): JSX.Element => {
         <Tittle>Review</Tittle>
         <Review>{review}</Review>
         <Score>
-          <ScoreImg src="/img/fav-blank.png" alt="star" />
-          <ScoreImg src="/img/fav-blank.png" alt="star" />
-          <ScoreImg src="/img/fav-blank.png" alt="star" />
-          <ScoreImg src="/img/fav-blank.png" alt="star" />
-          <ScoreImg src="/img/fav-blank.png" alt="star" />
+          <Rating name="read-only" value={score} readOnly />
         </Score>
       </Card>
     </>

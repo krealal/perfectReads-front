@@ -152,6 +152,7 @@ const Home: NextPage = (): JSX.Element => {
               review={aReview.review}
               key={index}
               id={aReview.id}
+              score={aReview.score}
             />
           ))}
         </ReviewsDiv>

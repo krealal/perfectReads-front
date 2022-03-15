@@ -22,17 +22,27 @@ describe("given a home page ", () => {
     });
   });
 
-  describe("When it's rendered component", () => {
-    test("Then it should find marta in the document", async () => {
-      render(
-        <Provider store={store}>
-          <Home />
-        </Provider>
-      );
+  test("Then it should find marta in the document", async () => {
+    render(
+      <Provider store={store}>
+        <Home />
+      </Provider>
+    );
 
-      const test = await screen.findByText("marta");
+    const test = await screen.findByText("marta");
 
-      expect(test).toBeInTheDocument();
-    });
+    expect(test).toBeInTheDocument();
+  });
+
+  test("Then it should find score image with tittle  `luis's score`", async () => {
+    render(
+      <Provider store={store}>
+        <Home />
+      </Provider>
+    );
+
+    const test = await screen.findByTitle(/luis's score/i);
+
+    expect(test).toBeInTheDocument();
   });
 });

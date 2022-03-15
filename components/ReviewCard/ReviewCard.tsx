@@ -119,7 +119,12 @@ const ReviewCard = ({
         <Tittle>Review</Tittle>
         <Review>{review}</Review>
         <Score>
-          <Rating name="read-only" value={score} readOnly />
+          <Rating
+            name="read-only"
+            value={score}
+            title={`${name}'s score`}
+            readOnly
+          />
         </Score>
       </Card>
     </>

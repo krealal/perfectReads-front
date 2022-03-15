@@ -2,6 +2,8 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import styled from "styled-components";
+import { Rating } from "@mui/material";
+import { useState } from "react";
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -20,7 +22,8 @@ interface FormProps {
   tittle: string;
   buttonText: string;
   submit: any;
-  changeData: any;
+  changeData: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  getScore: (event: string) => void;
 }
 
 const Form = ({
@@ -28,7 +31,10 @@ const Form = ({
   buttonText,
   submit,
   changeData,
+  getScore,
 }: FormProps): JSX.Element => {
+  const [value, setValue] = useState<number | null>(0);
+
   return (
     <>
       <Box
@@ -46,11 +52,15 @@ const Form = ({
         <TittleForm>{tittle}</TittleForm>
         <TextField id="name" label="Name" type="text" onChange={changeData} />
         <TextField id="image" label="Image" type="text" onChange={changeData} />
-        <TextField
+
+        <Rating
           id="score"
-          label="Score"
-          type="number"
-          onChange={changeData}
+          name="simple-controlled"
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+            getScore((event.target as HTMLTextAreaElement).value);
+          }}
         />
         <TextField
           id="review"

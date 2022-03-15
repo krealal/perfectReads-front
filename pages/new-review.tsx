@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { FormEventHandler, useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import Form from "../components/Form/Form";
@@ -17,16 +17,24 @@ const NewReview = (): JSX.Element => {
   const blannkFields = {
     name: "",
     review: "",
-    score: 1,
+    score: 0,
     image: "",
   };
   const [formData, setFormData] = useState(blannkFields);
 
-  const changeData = (event: any) => {
+  const changeData: FormEventHandler = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
   };
 
-  const form = (event: any) => {
+  const getRatting = (rating: any) => {
+    setFormData({ ...formData, score: rating });
+  };
+
+  const form: FormEventHandler = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     event.preventDefault();
     dispatch(createReviewThunk(formData));
   };
@@ -39,6 +47,7 @@ const NewReview = (): JSX.Element => {
           tittle="New Review"
           submit={form}
           changeData={changeData}
+          getScore={getRatting}
         />
       </RegisterCont>
     </>

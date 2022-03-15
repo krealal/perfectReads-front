@@ -144,7 +144,7 @@ const Home: NextPage = (): JSX.Element => {
               image={aReview.image}
               review={aReview.review}
               key={index}
-              _id={aReview._id}
+              id={aReview.id}
             />
           ))}
         </ReviewsDiv>

@@ -64,7 +64,7 @@ describe("Given a createReviewThunk", () => {
         image: "src/image/2.png",
         score: 1,
         review: "merol",
-        _id: "1233124",
+        id: "1233124",
       };
       const createReview = createReviewThunk(singleReview);
 

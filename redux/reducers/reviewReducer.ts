@@ -16,7 +16,7 @@ const reviewReducer = (
 
     case actionTypes.deleteReview:
       newReview = (reviewState as ReviewForm[]).filter(
-        (review) => review._id !== (action as TypeOfAction).payload
+        (review) => review.id !== (action as TypeOfAction).payload
       );
       break;
 
@@ -26,7 +26,7 @@ const reviewReducer = (
 
     case actionTypes.editReview:
       newReview = (reviewState as ReviewForm[]).map((review) =>
-        review._id === (action as AnyAction)._id
+        review.id === (action as AnyAction).id
           ? (action as AnyAction).review
           : review
       );

@@ -15,7 +15,7 @@ describe("given a reviewReducer", () => {
           image: "src/img/1.png",
           score: 4,
           review: "lorem",
-          _id: "3",
+          id: "3",
         },
       ];
       const newReview = [
@@ -24,7 +24,7 @@ describe("given a reviewReducer", () => {
           image: "src/img/2.png",
           score: 1,
           review: "lorem2",
-          _id: "4",
+          id: "4",
         },
       ];
 
@@ -50,14 +50,14 @@ describe("given a reviewReducer", () => {
           image: "src/img/1.png",
           score: 4,
           review: "lorem",
-          _id: "2",
+          id: "2",
         },
         {
           name: "uwu",
           image: "src/img/1.png",
           score: 4,
           review: "lorem",
-          _id: "3",
+          id: "3",
         },
       ];
       const idToDelete = "2";
@@ -80,14 +80,14 @@ describe("given a reviewReducer", () => {
           image: "src/img/1.png",
           score: 4,
           review: "lorem",
-          _id: "2",
+          id: "2",
         },
         {
           name: "uwu",
           image: "src/img/1.png",
           score: 4,
           review: "lorem",
-          _id: "3",
+          id: "3",
         },
       ];
       const singleReview = [
@@ -96,7 +96,7 @@ describe("given a reviewReducer", () => {
           image: "src/img/1.png",
           score: 4,
           review: "lorem",
-          _id: "5",
+          id: "5",
         },
       ];
       const action = createReviewAction(singleReview);
@@ -116,7 +116,7 @@ describe("given a reviewReducer", () => {
           image: "src/img/1.png",
           score: 4,
           review: "lorem",
-          _id: "2",
+          id: "2",
         },
       ];
       const idToUpdate = "2";
@@ -139,14 +139,14 @@ describe("given a reviewReducer", () => {
           image: "src/img/1.png",
           score: 4,
           review: "lorem",
-          _id: "2",
+          id: "2",
         },
         {
           name: "asd",
           image: "src/img/1.png",
           score: 1,
           review: "lorem",
-          _id: "4",
+          id: "4",
         },
       ];
       const newReview = [
@@ -155,7 +155,7 @@ describe("given a reviewReducer", () => {
           image: "src/img/1.png",
           score: 4,
           review: "lorem",
-          _id: "2",
+          id: "2",
         },
       ];
 
@@ -165,7 +165,7 @@ describe("given a reviewReducer", () => {
         image: "src/img/1.png",
         score: 4,
         review: "lorem",
-        _id: "2",
+        id: "2",
       };
       const action = updateReviewAction("2");
 

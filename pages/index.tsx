@@ -7,6 +7,7 @@ import { loadReviewThunk } from "../redux/thunks/reviewThunks";
 import { ReviewsForm } from "../types/reviewsProps";
 import RootState from "../types/RootState";
 import Button from "@mui/material/Button";
+import Router from "next/router";
 
 const BookCover = styled.img`
   height: 180px;
@@ -132,7 +133,13 @@ const Home: NextPage = (): JSX.Element => {
         <GeneralReviewsDiv>
           <LinkBooks href="">GENERAL</LinkBooks>
           <LinkBooks href="">REVIEWS</LinkBooks>
-          <Button variant="contained" href="/new-review" size="small">
+          <Button
+            variant="contained"
+            onClick={() => {
+              Router.push("/new-review");
+            }}
+            size="small"
+          >
             + Review
           </Button>
         </GeneralReviewsDiv>

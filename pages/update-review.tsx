@@ -25,6 +25,8 @@ const UpdateReview = (): JSX.Element => {
 
   const form = () => {};
 
+  const getRatting = () => {};
+
   return (
     <>
       <RegisterCont>
@@ -33,6 +35,7 @@ const UpdateReview = (): JSX.Element => {
           tittle="Update Review"
           changeData={changeData}
           submit={form}
+          getScore={getRatting}
         />
       </RegisterCont>
     </>

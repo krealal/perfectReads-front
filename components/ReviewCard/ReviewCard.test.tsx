@@ -10,7 +10,7 @@ describe("Given a reviewCard component", () => {
         image: "/img/fav-blank.png",
         name: "marc stars",
         review: "lorem ipsum",
-        _id: "2",
+        id: "2",
       };
 
       render(
@@ -20,7 +20,7 @@ describe("Given a reviewCard component", () => {
             name={review.name}
             review={review.image}
             key={1}
-            _id={review._id}
+            id={review.id}
           />
         </Provider>
       );

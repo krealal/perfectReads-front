@@ -14,7 +14,7 @@ describe("Given a getReviewAction action", () => {
           image: "src/img/1.png",
           score: 4,
           review: "lorem",
-          _id: "2",
+          id: "2",
         },
       ];
       const expectedAction = {
@@ -53,7 +53,7 @@ describe("Given a createReviewAction action", () => {
           image: "src/img/1.png",
           score: 4,
           review: "lorem",
-          _id: "2",
+          id: "2",
         },
       ];
 

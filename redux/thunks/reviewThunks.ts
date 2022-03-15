@@ -16,14 +16,13 @@ export const loadReviewThunk = async (dispatch: Dispatch) => {
   return dispatch(getReviewAction(reviewList));
 };
 
-export const deleteReviewThunk =
-  (_id: string) => async (dispatch: Dispatch) => {
-    const response = await fetch(`${url}/reviews/${_id}`, {
-      method: "DELETE",
-    });
-    if (!response.ok) return;
-    dispatch(deleteReviewAction(_id));
-  };
+export const deleteReviewThunk = (id: string) => async (dispatch: Dispatch) => {
+  const response = await fetch(`${url}/reviews/${id}`, {
+    method: "DELETE",
+  });
+  if (!response.ok) return;
+  dispatch(deleteReviewAction(id));
+};
 
 export const createReviewThunk =
   (review: Review) => async (dispatch: Dispatch) => {
@@ -40,17 +39,16 @@ export const createReviewThunk =
     dispatch(createReviewAction(newReview));
   };
 
-export const updateReviewThunk =
-  (_id: string) => async (dispatch: Dispatch) => {
-    const reviewJson = JSON.stringify(_id);
-    const response = await fetch(`${url}/reviews/${_id}`, {
-      method: "PUT",
-      mode: "cors",
-      headers: { "Content-Type": "application/json" },
-      body: reviewJson,
-    });
+export const updateReviewThunk = (id: string) => async (dispatch: Dispatch) => {
+  const reviewJson = JSON.stringify(id);
+  const response = await fetch(`${url}/reviews/${id}`, {
+    method: "PUT",
+    mode: "cors",
+    headers: { "Content-Type": "application/json" },
+    body: reviewJson,
+  });
 
-    if (!response.ok) return;
-    const updatedReview = await response.json();
-    dispatch(updateReviewAction(updatedReview));
-  };
+  if (!response.ok) return;
+  const updatedReview = await response.json();
+  dispatch(updateReviewAction(updatedReview));
+};

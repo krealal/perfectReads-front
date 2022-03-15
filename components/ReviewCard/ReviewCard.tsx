@@ -78,10 +78,10 @@ type ReviewProps = {
   image: string;
   name: string;
   review: string;
-  _id: string;
+  id: string;
 };
 
-const ReviewCard = ({ image, name, review, _id }: ReviewProps): JSX.Element => {
+const ReviewCard = ({ image, name, review, id }: ReviewProps): JSX.Element => {
   const dispatch = useDispatch();
   const deleteTask = (id: string) => {
     dispatch(deleteReviewThunk(id));
@@ -93,7 +93,7 @@ const ReviewCard = ({ image, name, review, _id }: ReviewProps): JSX.Element => {
         <ButtonDiv>
           <Button
             actionOnClick={() => {
-              deleteTask(_id);
+              deleteTask(id);
             }}
             image="/img/delete.png"
           />

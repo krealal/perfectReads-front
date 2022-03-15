@@ -6,5 +6,5 @@ export interface Review {
 }
 
 export interface ReviewForm extends Review {
-  _id: string;
+  id: string;
 }

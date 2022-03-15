@@ -100,7 +100,7 @@ const ReviewCard = ({ image, name, review, id }: ReviewProps): JSX.Element => {
 
           <Button
             actionOnClick={() => {
-              Router.push("/new-review");
+              Router.push("/update-review");
             }}
             image="/img/edit.png"
           />

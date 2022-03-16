@@ -8,6 +8,7 @@ import { ReviewsForm } from "../types/reviewsProps";
 import RootState from "../types/RootState";
 import Button from "@mui/material/Button";
 import Router from "next/router";
+import { CircularProgress } from "@mui/material";
 
 const BookCover = styled.img`
   height: 180px;
@@ -144,6 +145,9 @@ const Home: NextPage = (): JSX.Element => {
           </Button>
         </GeneralReviewsDiv>
         <SeparatorLine />
+
+        {reviewState.length && <CircularProgress />}
+
         <ReviewsDiv>
           {reviewState.map((aReview, index) => (
             <ReviewCard

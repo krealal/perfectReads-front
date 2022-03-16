@@ -130,7 +130,10 @@ const ReviewCard = ({
 
           <Button
             actionOnClick={() => {
-              Router.push("/update-review");
+              Router.push({
+                pathname: "/update-review",
+                query: { id: id },
+              });
             }}
             image="/img/edit.png"
           />

@@ -79,9 +79,15 @@ describe("Given a updateReviewThunk function", () => {
   describe("When it is called with id 123", () => {
     test("Then it should dispatch a function", async () => {
       const dispatch = jest.fn();
-      const id = "123";
+      const singleReview = {
+        name: "marta",
+        image: "src/image/2.png",
+        score: 1,
+        review: "merol",
+        id: "123",
+      };
 
-      const updateThunk = updateReviewThunk(id);
+      const updateThunk = updateReviewThunk(singleReview);
       await updateThunk(dispatch);
 
       expect(dispatch).toHaveBeenCalled();

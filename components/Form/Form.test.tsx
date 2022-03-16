@@ -15,6 +15,8 @@ describe("given a registerForm component", () => {
             tittle="new review"
             submit={submit}
             changeData={submit}
+            formData={submit}
+            getScore={submit}
           />
         </Provider>
       );
@@ -36,6 +38,8 @@ describe("given a registerForm component", () => {
             tittle="new review"
             submit={submit}
             changeData={submit}
+            formData={submit}
+            getScore={submit}
           />
         </Provider>
       );
@@ -55,6 +59,8 @@ describe("given a registerForm component", () => {
             tittle="new review"
             submit={submit}
             changeData={submit}
+            formData={submit}
+            getScore={submit}
           />
         </Provider>
       );

@@ -36,7 +36,8 @@ export const createReviewThunk =
     });
     if (!response.ok) return;
     const newReview = await response.json();
-    dispatch(createReviewAction(newReview));
+    const test = await dispatch(createReviewAction(newReview));
+    return test;
   };
 
 export const updateReviewThunk = (id: string) => async (dispatch: Dispatch) => {

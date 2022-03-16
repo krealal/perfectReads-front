@@ -1,5 +1,7 @@
+import Router from "next/router";
 import React, { FormEventHandler, useState } from "react";
 import { useDispatch } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
 import styled from "styled-components";
 import Form from "../components/Form/Form";
 import { createReviewThunk } from "../redux/thunks/reviewThunks";
@@ -32,15 +34,32 @@ const NewReview = (): JSX.Element => {
     setFormData({ ...formData, score: rating });
   };
 
-  const form: FormEventHandler = (
+  const form: FormEventHandler = async (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     event.preventDefault();
-    dispatch(createReviewThunk(formData));
+    const returnDispatch: any = await dispatch(createReviewThunk(formData));
+    if (!returnDispatch.errorCode) {
+      toast("New anime created 🐼");
+      setTimeout(() => {
+        Router.push("/");
+      }, 2000);
+    }
   };
 
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <RegisterCont>
         <Form
           buttonText="Add Review"

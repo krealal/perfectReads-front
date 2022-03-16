@@ -4,6 +4,8 @@ import { deleteReviewThunk } from "../../redux/thunks/reviewThunks";
 import Button from "../Button/Button";
 import Router from "next/router";
 import { Rating } from "@mui/material";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Card = styled.div`
   width: 330px;
@@ -92,6 +94,15 @@ const ReviewCard = ({
 }: ReviewProps): JSX.Element => {
   const dispatch = useDispatch();
   const deleteTask = (id: string) => {
+    toast.success("Successfuly deleted", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
     dispatch(deleteReviewThunk(id));
   };
 
@@ -104,6 +115,17 @@ const ReviewCard = ({
               deleteTask(id);
             }}
             image="/img/delete.png"
+          />
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
           />
 
           <Button

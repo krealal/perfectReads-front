@@ -146,7 +146,7 @@ const Home: NextPage = (): JSX.Element => {
         </GeneralReviewsDiv>
         <SeparatorLine />
 
-        {reviewState.length && <CircularProgress />}
+        {!reviewState.length && <CircularProgress />}
 
         <ReviewsDiv>
           {reviewState.map((aReview, index) => (

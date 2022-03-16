@@ -1,5 +1,5 @@
 import actionTypes from "./actionTypes";
-import { Reviews } from "../../types/reviewsProps";
+import { Reviews, ReviewsForm } from "../../types/reviewsProps";
 import TypeOfAction from "../../types/TypeOfAction";
 
 export const getReviewAction = (review: Reviews): TypeOfAction => ({
@@ -17,7 +17,7 @@ export const createReviewAction = (review: Reviews): TypeOfAction => ({
   payload: review,
 });
 
-export const updateReviewAction = (id: string): TypeOfAction => ({
+export const updateReviewAction = (review: ReviewsForm): TypeOfAction => ({
   type: actionTypes.editReview,
-  payload: id,
+  payload: review,
 });

@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import styled from "styled-components";
 import { Rating } from "@mui/material";
 import { useState } from "react";
-import Router from "next/router";
+import { LargeNumberLike } from "crypto";
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -24,17 +24,19 @@ interface FormProps {
   buttonText: string;
   submit: any;
   changeData: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  getScore: (event: string) => void;
+  getScore: (event: any) => void;
+  formData: any;
 }
 
 const Form = ({
   tittle,
   buttonText,
   submit,
+  formData,
   changeData,
   getScore,
 }: FormProps): JSX.Element => {
-  const [value, setValue] = useState<number | null>(0);
+  const [value, setValue] = useState<number | null>(formData.value);
 
   return (
     <>
@@ -51,13 +53,25 @@ const Form = ({
         onSubmit={submit}
       >
         <TittleForm>{tittle}</TittleForm>
-        <TextField id="name" label="Name" type="text" onChange={changeData} />
-        <TextField id="image" label="Image" type="text" onChange={changeData} />
+        <TextField
+          id="name"
+          label="Name"
+          type="text"
+          onChange={changeData}
+          value={formData.name}
+        />
+        <TextField
+          id="image"
+          label="Image"
+          type="text"
+          onChange={changeData}
+          value={formData.image}
+        />
 
         <Rating
           id="score"
           name="simple-controlled"
-          value={value}
+          value={formData.score}
           onChange={(event, newValue) => {
             setValue(newValue);
             getScore((event.target as HTMLTextAreaElement).value);
@@ -71,6 +85,7 @@ const Form = ({
           rows={4}
           onChange={changeData}
           inputProps={{ maxLength: 105 }}
+          value={formData.review}
         />
         <ButtonContainer>
           <Button variant="contained" type="submit">

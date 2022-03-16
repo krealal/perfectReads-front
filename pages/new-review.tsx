@@ -30,7 +30,7 @@ const NewReview = (): JSX.Element => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
   };
 
-  const getRatting = (rating: any) => {
+  const getRatting = (rating: number) => {
     setFormData({ ...formData, score: rating });
   };
 
@@ -40,7 +40,7 @@ const NewReview = (): JSX.Element => {
     event.preventDefault();
     const returnDispatch: any = await dispatch(createReviewThunk(formData));
     if (!returnDispatch.errorCode) {
-      toast.success("Successfuly created", {
+      toast.success("Successfuly deleted", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -75,6 +75,7 @@ const NewReview = (): JSX.Element => {
           submit={form}
           changeData={changeData}
           getScore={getRatting}
+          formData={formData}
         />
       </RegisterCont>
     </>

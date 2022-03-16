@@ -1,5 +1,5 @@
 import { Dispatch } from "redux";
-import { Review } from "../../types/Review";
+import { Review, ReviewForm } from "../../types/Review";
 import {
   createReviewAction,
   deleteReviewAction,
@@ -40,16 +40,17 @@ export const createReviewThunk =
     return test;
   };
 
-export const updateReviewThunk = (id: string) => async (dispatch: Dispatch) => {
-  const reviewJson = JSON.stringify(id);
-  const response = await fetch(`${url}/reviews/${id}`, {
-    method: "PUT",
-    mode: "cors",
-    headers: { "Content-Type": "application/json" },
-    body: reviewJson,
-  });
+export const updateReviewThunk =
+  (review: ReviewForm) => async (dispatch: Dispatch) => {
+    const reviewJson = JSON.stringify(review);
+    const response = await fetch(`${url}/reviews/${review.id}`, {
+      method: "PUT",
+      mode: "cors",
+      headers: { "Content-Type": "application/json" },
+      body: reviewJson,
+    });
 
-  if (!response.ok) return;
-  const updatedReview = await response.json();
-  dispatch(updateReviewAction(updatedReview));
-};
+    if (!response.ok) return;
+    const updatedReview = await response.json();
+    dispatch(updateReviewAction(updatedReview));
+  };

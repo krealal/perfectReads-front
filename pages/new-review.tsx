@@ -40,10 +40,18 @@ const NewReview = (): JSX.Element => {
     event.preventDefault();
     const returnDispatch: any = await dispatch(createReviewThunk(formData));
     if (!returnDispatch.errorCode) {
-      toast("New anime created 🐼");
+      toast.success("Successfuly created", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       setTimeout(() => {
         Router.push("/");
-      }, 2000);
+      }, 1000);
     }
   };
 

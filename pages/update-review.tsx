@@ -1,7 +1,14 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { FormEventHandler, useContext, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Form from "../components/Form/Form";
+import store from "../redux/store";
+import { ReviewsForm } from "../types/reviewsProps";
+import RootState from "../types/RootState";
+import { useRouter } from "next/router";
+import { updateReviewThunk } from "../redux/thunks/reviewThunks";
+import { Review } from "../types/Review";
+import { AnyAction } from "redux";
 
 const RegisterCont = styled.section`
   height: 100vh;
@@ -11,21 +18,41 @@ const RegisterCont = styled.section`
 `;
 
 const UpdateReview = (): JSX.Element => {
-  const dispatch = useDispatch();
+  const router = useRouter();
+  const id = router.query.id;
 
+  const reviewState: ReviewsForm = useSelector<RootState, any>(
+    (state) => state.reviewsList
+  );
+
+  const review: any = reviewState.find((review) => review.id === id);
+
+  const dispatch = useDispatch();
   const blannkFields = {
-    name: "",
-    review: "",
-    score: 1,
-    image: "",
+    name: review.name as string,
+    review: review.review as string,
+    score: review.score as number,
+    image: review.image as string,
+    id: review.id as string,
   };
   const [formData, setFormData] = useState(blannkFields);
 
-  const changeData = () => {};
+  const changeData: FormEventHandler = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setFormData({ ...formData, [event.target.id]: event.target.value });
+  };
 
-  const form = () => {};
+  const form: FormEventHandler = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    event.preventDefault();
+    await dispatch(updateReviewThunk(formData));
+  };
 
-  const getRatting = () => {};
+  const getRatting = (rating: number) => {
+    setFormData({ ...formData, score: rating });
+  };
 
   return (
     <>
@@ -36,6 +63,7 @@ const UpdateReview = (): JSX.Element => {
           changeData={changeData}
           submit={form}
           getScore={getRatting}
+          formData={formData}
         />
       </RegisterCont>
     </>

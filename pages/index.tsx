@@ -97,7 +97,6 @@ const Home: NextPage = (): JSX.Element => {
   const reviewState: ReviewsForm = useSelector<RootState, any>(
     (state) => state.reviewsList
   );
-
   const dispatch = useDispatch();
 
   useEffect(() => {

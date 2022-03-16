@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import styled from "styled-components";
 import { Rating } from "@mui/material";
 import { useState } from "react";
+import { LargeNumberLike } from "crypto";
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -23,7 +24,7 @@ interface FormProps {
   buttonText: string;
   submit: any;
   changeData: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  getScore: (event: number) => void;
+  getScore: (event: any) => void;
   formData: any;
 }
 
@@ -35,7 +36,7 @@ const Form = ({
   changeData,
   getScore,
 }: FormProps): JSX.Element => {
-  const [value, setValue] = useState<number | null>(0);
+  const [value, setValue] = useState<number | null>(formData.value);
 
   return (
     <>
@@ -70,7 +71,7 @@ const Form = ({
         <Rating
           id="score"
           name="simple-controlled"
-          value={formData.value}
+          value={formData.score}
           onChange={(event, newValue) => {
             setValue(newValue);
             getScore((event.target as HTMLTextAreaElement).value);

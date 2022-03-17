@@ -1,8 +1,12 @@
-import { render, screen } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { wrapper } from "../../redux/store";
+import { screen } from "@testing-library/react";
 import ReviewCard from "./ReviewCard";
 import { renderWithProviders } from "../../jest.setup";
+import userEvent from "@testing-library/user-event";
+import { waitForElementToBeRemoved } from "@testing-library/react";
+
+beforeAll(() => {
+  jest.useFakeTimers();
+});
 
 describe("Given a reviewCard component", () => {
   describe("When its rendered with name /marc stars/", () => {
@@ -24,8 +28,6 @@ describe("Given a reviewCard component", () => {
           score={review.score}
         />
       );
-
-      screen.debug();
 
       const renderImage = screen.getByRole("img", { name: review.name });
 
@@ -54,6 +56,39 @@ describe("Given a reviewCard component", () => {
       const scoreStars = screen.getByRole("img", { name: /4 stars/i });
 
       expect(scoreStars).toBeInTheDocument();
+    });
+  });
+
+  describe("when the user clicks on delete button", () => {
+    test("then should be show a toastr with role alert", async () => {
+      jest.advanceTimersByTime(1000);
+
+      const review = {
+        image: "/img/fav-blank.png",
+        name: "marc stars",
+        review: "lorem ipsum",
+        id: "123",
+      };
+
+      renderWithProviders(
+        <ReviewCard
+          image={review.image}
+          name={review.name}
+          review={review.image}
+          key={1}
+          id={review.id}
+          score={4}
+        />
+      );
+
+      const deleteButton = screen.getAllByRole("button", {
+        name: "/img/delete.png button",
+      });
+
+      userEvent.click(deleteButton[0]);
+
+      const toast = await screen.findByRole("alert");
+      expect(toast).toBeInTheDocument();
     });
   });
 });

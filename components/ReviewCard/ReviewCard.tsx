@@ -101,6 +101,17 @@ const ReviewCard = ({
 
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <Card>
         <ButtonDiv>
           <Button
@@ -108,17 +119,6 @@ const ReviewCard = ({
               deleteTask(id);
             }}
             image="/img/delete.png"
-          />
-          <ToastContainer
-            position="top-right"
-            autoClose={2000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
           />
 
           <Button

@@ -60,9 +60,31 @@ describe("given a registerForm component", () => {
 
       const button = screen.getByRole("button", { name: /add/i });
 
-      fireEvent.click(button);
+      userEvent.click(button);
 
       expect(submit).toHaveBeenCalled();
+    });
+  });
+
+  describe("when its rendered and finds radioInput with accessible name '2 Stars", () => {
+    test("then when user clicks on it should dispatch function 'clicked' in getScore", async () => {
+      const submit = jest.fn();
+      const clicked = jest.fn();
+      render(
+        <Form
+          buttonText="add"
+          tittle="new review"
+          submit={submit}
+          changeData={submit}
+          formData={submit}
+          getScore={clicked}
+        />
+      );
+
+      const starButton = screen.getByRole("radio", { name: /2 stars/i });
+      await userEvent.click(starButton);
+
+      expect(clicked).toHaveBeenCalled();
     });
   });
 });

@@ -9,6 +9,7 @@ import RootState from "../types/RootState";
 import Button from "@mui/material/Button";
 import Router from "next/router";
 import { CircularProgress } from "@mui/material";
+import { wrapper } from "../redux/store";
 
 const BookCover = styled.img`
   height: 180px;
@@ -163,5 +164,12 @@ const Home: NextPage = (): JSX.Element => {
     </div>
   );
 };
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) => async () => {
+    await store.dispatch<any>(loadReviewThunk());
+    return { props: {} };
+  }
+);
 
 export default Home;

@@ -1,7 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
-import store from "../../redux/store";
 import Form from "./Form";
 
 describe("given a registerForm component", () => {
@@ -9,16 +8,14 @@ describe("given a registerForm component", () => {
     test("then it should be find the heading 'new review'", () => {
       const submit = jest.fn();
       render(
-        <Provider store={store}>
-          <Form
-            buttonText="add"
-            tittle="new review"
-            submit={submit}
-            changeData={submit}
-            formData={submit}
-            getScore={submit}
-          />
-        </Provider>
+        <Form
+          buttonText="add"
+          tittle="new review"
+          submit={submit}
+          changeData={submit}
+          formData={submit}
+          getScore={submit}
+        />
       );
 
       const tittle = screen.getByRole("heading", { name: /new review/i });
@@ -32,16 +29,14 @@ describe("given a registerForm component", () => {
       const inputedText = "hola buenos días";
       const submit = jest.fn();
       render(
-        <Provider store={store}>
-          <Form
-            buttonText="add"
-            tittle="new review"
-            submit={submit}
-            changeData={submit}
-            formData={submit}
-            getScore={submit}
-          />
-        </Provider>
+        <Form
+          buttonText="add"
+          tittle="new review"
+          submit={submit}
+          changeData={submit}
+          formData={submit}
+          getScore={submit}
+        />
       );
 
       const input = screen.getByRole("textbox", { name: /name/i });
@@ -53,16 +48,14 @@ describe("given a registerForm component", () => {
     test("then the button should be called", () => {
       const submit = jest.fn();
       render(
-        <Provider store={store}>
-          <Form
-            buttonText="add"
-            tittle="new review"
-            submit={submit}
-            changeData={submit}
-            formData={submit}
-            getScore={submit}
-          />
-        </Provider>
+        <Form
+          buttonText="add"
+          tittle="new review"
+          submit={submit}
+          changeData={submit}
+          formData={submit}
+          getScore={submit}
+        />
       );
 
       const button = screen.getByRole("button", { name: /add/i });

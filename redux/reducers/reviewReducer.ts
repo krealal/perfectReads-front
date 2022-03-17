@@ -1,3 +1,4 @@
+import { HYDRATE } from "next-redux-wrapper";
 import { AnyAction } from "redux";
 import { Review, ReviewForm } from "../../types/Review";
 import TypeOfAction from "../../types/TypeOfAction";
@@ -10,6 +11,9 @@ const reviewReducer = (
 ) => {
   let newReview;
   switch ((action as AnyAction).type) {
+    case HYDRATE:
+      return [...(action as AnyAction).payload.reviewsList];
+
     case actionTypes.getReviews:
       newReview = [...(action as AnyAction).payload];
       break;

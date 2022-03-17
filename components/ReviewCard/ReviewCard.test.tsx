@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import store from "../../redux/store";
+import { wrapper } from "../../redux/store";
 import ReviewCard from "./ReviewCard";
+import { renderWithProviders } from "../../jest.setup";
 
 describe("Given a reviewCard component", () => {
   describe("When its rendered with name /marc stars/", () => {
@@ -11,20 +12,20 @@ describe("Given a reviewCard component", () => {
         name: "marc stars",
         review: "lorem ipsum",
         id: "2",
+        score: 4,
       };
 
-      render(
-        <Provider store={store}>
-          <ReviewCard
-            image={review.image}
-            name={review.name}
-            review={review.image}
-            key={1}
-            id={review.id}
-            score={4}
-          />
-        </Provider>
+      renderWithProviders(
+        <ReviewCard
+          id={review.id}
+          image={review.image}
+          name={review.name}
+          review={review.review}
+          score={review.score}
+        />
       );
+
+      screen.debug();
 
       const renderImage = screen.getByRole("img", { name: review.name });
 
@@ -39,17 +40,15 @@ describe("Given a reviewCard component", () => {
         id: "2",
       };
 
-      render(
-        <Provider store={store}>
-          <ReviewCard
-            image={review.image}
-            name={review.name}
-            review={review.image}
-            key={1}
-            id={review.id}
-            score={4}
-          />
-        </Provider>
+      renderWithProviders(
+        <ReviewCard
+          image={review.image}
+          name={review.name}
+          review={review.image}
+          key={1}
+          id={review.id}
+          score={4}
+        />
       );
 
       const scoreStars = screen.getByRole("img", { name: /4 stars/i });

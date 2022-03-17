@@ -22,8 +22,7 @@ describe("Given a loadReviewThunk function", () => {
     test("Then it should dispatch a function", async () => {
       const dispatch = jest.fn();
 
-      await loadReviewThunk(dispatch);
-
+      await loadReviewThunk()(dispatch);
       expect(dispatch).toHaveBeenCalled();
     });
   });

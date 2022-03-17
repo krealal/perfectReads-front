@@ -2,13 +2,10 @@ import { FormEventHandler, useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Form from "../components/Form/Form";
-import store from "../redux/store";
 import { ReviewsForm } from "../types/reviewsProps";
 import RootState from "../types/RootState";
 import { useRouter } from "next/router";
 import { updateReviewThunk } from "../redux/thunks/reviewThunks";
-import { Review } from "../types/Review";
-import { AnyAction } from "redux";
 
 const RegisterCont = styled.section`
   height: 100vh;
@@ -29,11 +26,11 @@ const UpdateReview = (): JSX.Element => {
 
   const dispatch = useDispatch();
   const blannkFields = {
-    name: review.name as string,
-    review: review.review as string,
-    score: review.score as number,
-    image: review.image as string,
-    id: review.id as string,
+    name: review?.name as string,
+    review: review?.review as string,
+    score: review?.score as number,
+    image: review?.image as string,
+    id: review?.id as string,
   };
   const [formData, setFormData] = useState(blannkFields);
 

@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import styled from "styled-components";
 import { Rating } from "@mui/material";
 import { useState } from "react";
-import { LargeNumberLike } from "crypto";
 
 const ButtonContainer = styled.div`
   display: flex;

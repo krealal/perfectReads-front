@@ -1,8 +1,9 @@
 import "whatwg-fetch";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import Home, { getServerSideProps } from "../pages/index";
 import { wrapper } from "../redux/store";
 import { GetServerSidePropsContext } from "next";
+import userEvent from "@testing-library/user-event";
 
 describe("given a home page ", () => {
   describe("when its rendered", () => {
@@ -17,37 +18,61 @@ describe("given a home page ", () => {
 
       expect(renderTittle).toBeInTheDocument();
     });
+    test("Then it should find marta in the document", async () => {
+      const WrappedComponent = await wrapper.withRedux(Home);
+      const context = {
+        params: {},
+      };
+      render(<WrappedComponent />);
+
+      const getSSR = await getServerSideProps(
+        context as GetServerSidePropsContext
+      );
+
+      const marta = await screen.findByText("marta");
+
+      expect(marta).toBeInTheDocument();
+    });
+
+    test("Then it should find score image with tittle  `luis's score`", async () => {
+      const WrappedComponent = wrapper.withRedux(Home);
+      const context = {
+        params: {},
+      };
+      render(<WrappedComponent />);
+
+      const getSSR = await getServerSideProps(
+        context as GetServerSidePropsContext
+      );
+
+      const luis = await screen.findByTitle(/luis's score/i);
+
+      expect(luis).toBeInTheDocument();
+    });
   });
 
-  test("Then it should find marta in the document", async () => {
-    const WrappedComponent = await wrapper.withRedux(Home);
-    const context = {
-      params: {},
-    };
-    render(<WrappedComponent />);
+  // describe("when user clicks on delete button of review luis", () => {
+  //   test("then lui's review should be removed", async () => {
+  //     //askMario
+  //     const WrappedComponent = wrapper.withRedux(Home);
+  //     const context = {
+  //       params: {},
+  //     };
+  //     render(<WrappedComponent />);
+  //     const getSSR = await getServerSideProps(
+  //       context as GetServerSidePropsContext
+  //     );
 
-    const getSSR = await getServerSideProps(
-      context as GetServerSidePropsContext
-    );
+  //     const reviewName = await screen.findByText(/luis/i);
 
-    const marta = await screen.findByText("marta");
+  //     const deleteButton = await screen.findAllByRole("button", {
+  //       name: "/img/delete.png button",
+  //     });
+  //     userEvent.click(deleteButton[0]);
 
-    expect(marta).toBeInTheDocument();
-  });
+  //     await waitFor(async () => expect(reviewName).not.toBeInTheDocument());
 
-  test("Then it should find score image with tittle  `luis's score`", async () => {
-    const WrappedComponent = wrapper.withRedux(Home);
-    const context = {
-      params: {},
-    };
-    render(<WrappedComponent />);
-
-    const getSSR = await getServerSideProps(
-      context as GetServerSidePropsContext
-    );
-
-    const luis = await screen.findByTitle(/luis's score/i);
-
-    expect(luis).toBeInTheDocument();
-  });
+  //     expect(reviewName).not.toBeInTheDocument();
+  //   });
+  // });
 });

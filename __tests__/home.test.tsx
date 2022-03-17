@@ -32,8 +32,6 @@ describe("given a home page ", () => {
 
     const marta = await screen.findByText("marta");
 
-    screen.debug();
-
     expect(marta).toBeInTheDocument();
   });
 

@@ -3,6 +3,9 @@ import ReviewCard from "./ReviewCard";
 import { renderWithProviders } from "../../jest.setup";
 import userEvent from "@testing-library/user-event";
 import { waitForElementToBeRemoved } from "@testing-library/react";
+import Router, { useRouter } from "next/router";
+
+jest.mock("next/router");
 
 beforeAll(() => {
   jest.useFakeTimers();
@@ -89,6 +92,38 @@ describe("Given a reviewCard component", () => {
 
       const toast = await screen.findByRole("alert");
       expect(toast).toBeInTheDocument();
+    });
+  });
+
+  describe("When the user clicks on edit page", () => {
+    test("then it should call next/Router with method push", () => {
+      const review = {
+        image: "/img/fav-blank.png",
+        name: "marc stars",
+        review: "lorem ipsum",
+        id: "123",
+      };
+
+      const spyRouter = jest.spyOn(Router, "push");
+
+      renderWithProviders(
+        <ReviewCard
+          image={review.image}
+          name={review.name}
+          review={review.image}
+          key={1}
+          id={review.id}
+          score={4}
+        />
+      );
+
+      const editButton = screen.getAllByRole("button", {
+        name: "/img/edit.png button",
+      });
+
+      userEvent.click(editButton[0]);
+
+      expect(spyRouter).toHaveBeenCalled();
     });
   });
 });

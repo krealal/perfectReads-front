@@ -5,6 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 import styled from "styled-components";
 import Form from "../components/Form/Form";
 import { createReviewThunk } from "../redux/thunks/reviewThunks";
+import toastMessage from "../utils/toast";
 
 const RegisterCont = styled.section`
   height: 100vh;
@@ -40,18 +41,10 @@ const NewReview = (): JSX.Element => {
     event.preventDefault();
     const returnDispatch: any = await dispatch(createReviewThunk(formData));
     if (!returnDispatch.errorCode) {
-      toast.success("Successfuly deleted", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toastMessage("Review successfully created", "normal");
       setTimeout(() => {
         Router.push("/");
-      }, 1000);
+      }, 2000);
     }
   };
 
@@ -59,7 +52,7 @@ const NewReview = (): JSX.Element => {
     <>
       <ToastContainer
         position="top-right"
-        autoClose={5000}
+        autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

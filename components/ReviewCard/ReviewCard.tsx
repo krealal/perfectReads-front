@@ -6,6 +6,7 @@ import Router from "next/router";
 import { Rating } from "@mui/material";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import toastMessage from "../../utils/toast";
 
 const Card = styled.div`
   width: 330px;
@@ -94,15 +95,7 @@ const ReviewCard = ({
 }: ReviewProps): JSX.Element => {
   const dispatch = useDispatch();
   const deleteTask = (id: string) => {
-    toast.success("Successfuly deleted", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    toastMessage("Review successfully deleted", "normal");
     dispatch(deleteReviewThunk(id));
   };
 
@@ -118,7 +111,7 @@ const ReviewCard = ({
           />
           <ToastContainer
             position="top-right"
-            autoClose={5000}
+            autoClose={2000}
             hideProgressBar={false}
             newestOnTop={false}
             closeOnClick

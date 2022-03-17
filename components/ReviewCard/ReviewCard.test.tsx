@@ -61,7 +61,7 @@ describe("Given a reviewCard component", () => {
 
   describe("when the user clicks on delete button", () => {
     test("then should be show a toastr with role alert", async () => {
-      jest.runAllTimers();
+      jest.advanceTimersByTime(1000);
 
       const review = {
         image: "/img/fav-blank.png",
@@ -85,9 +85,9 @@ describe("Given a reviewCard component", () => {
         name: "/img/delete.png button",
       });
 
-      const toast = await screen.findByRole("alert");
-
       userEvent.click(deleteButton[0]);
+
+      const toast = await screen.findByRole("alert");
       expect(toast).toBeInTheDocument();
     });
   });

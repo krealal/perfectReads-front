@@ -6,6 +6,9 @@ import { ReviewsForm } from "../types/reviewsProps";
 import RootState from "../types/RootState";
 import { useRouter } from "next/router";
 import { updateReviewThunk } from "../redux/thunks/reviewThunks";
+import { toast, ToastContainer } from "react-toastify";
+import Router from "next/router";
+import toastMessage from "../utils/toast";
 
 const RegisterCont = styled.section`
   height: 100vh;
@@ -44,7 +47,13 @@ const UpdateReview = (): JSX.Element => {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     event.preventDefault();
-    await dispatch(updateReviewThunk(formData));
+    const returnDispatch: any = await dispatch(updateReviewThunk(formData));
+    if (!returnDispatch.errorCode) {
+      toastMessage("Review successfully updated", "normal");
+      setTimeout(() => {
+        Router.push("/");
+      }, 2000);
+    }
   };
 
   const getRatting = (rating: number) => {
@@ -54,6 +63,17 @@ const UpdateReview = (): JSX.Element => {
   return (
     <>
       <RegisterCont>
+        <ToastContainer
+          position="top-right"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
         <Form
           buttonText="Update"
           tittle="Update Review"

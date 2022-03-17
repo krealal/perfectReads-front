@@ -36,8 +36,8 @@ export const createReviewThunk =
     });
     if (!response.ok) return;
     const newReview = await response.json();
-    const test = await dispatch(createReviewAction(newReview));
-    return test;
+    const createDispatch = await dispatch(createReviewAction(newReview));
+    return createDispatch;
   };
 
 export const updateReviewThunk =
@@ -52,5 +52,6 @@ export const updateReviewThunk =
 
     if (!response.ok) return;
     const updatedReview = await response.json();
-    dispatch(updateReviewAction(updatedReview));
+    const updateDispatch = await dispatch(updateReviewAction(updatedReview));
+    return updateDispatch;
   };

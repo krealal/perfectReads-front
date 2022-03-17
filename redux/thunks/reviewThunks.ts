@@ -9,7 +9,7 @@ import {
 
 const url: string = `${process.env.NEXT_PUBLIC_PERFECTREADS_API}`;
 
-export const loadReviewThunk = async (dispatch: Dispatch) => {
+export const loadReviewThunk = () => async (dispatch: Dispatch) => {
   const response = await fetch(`${url}/reviews/all`);
   const reviewList: any = await response.json();
 

@@ -25,8 +25,6 @@ describe("Given a reviewCard component", () => {
         />
       );
 
-      screen.debug();
-
       const renderImage = screen.getByRole("img", { name: review.name });
 
       expect(renderImage).toBeInTheDocument();

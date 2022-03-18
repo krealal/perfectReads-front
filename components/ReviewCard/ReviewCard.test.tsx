@@ -85,7 +85,7 @@ describe("Given a reviewCard component", () => {
       );
 
       const deleteButton = screen.getAllByRole("button", {
-        name: "/img/delete.png button",
+        name: /delete/i,
       });
 
       userEvent.click(deleteButton[0]);
@@ -118,7 +118,7 @@ describe("Given a reviewCard component", () => {
       );
 
       const editButton = screen.getAllByRole("button", {
-        name: "/img/edit.png button",
+        name: /edit/i,
       });
 
       userEvent.click(editButton[0]);

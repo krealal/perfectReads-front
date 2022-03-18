@@ -43,13 +43,8 @@ const UpdateReview = (): JSX.Element => {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     event.preventDefault();
-    const returnDispatch: any = await dispatch(updateReviewThunk(formData));
-    if (!returnDispatch.errorCode) {
-      toastMessage("Review successfully updated", "normal");
-      setTimeout(() => {
-        Router.push("/");
-      }, 2000);
-    }
+    Router.push("/");
+    await dispatch(updateReviewThunk(formData));
   };
 
   const getRatting = (rating: number) => {

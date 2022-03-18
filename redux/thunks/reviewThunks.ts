@@ -1,5 +1,6 @@
 import { Dispatch } from "redux";
 import { Review, ReviewForm } from "../../types/Review";
+import toastMessage from "../../utils/toast";
 import {
   createReviewAction,
   deleteReviewAction,
@@ -36,8 +37,8 @@ export const createReviewThunk =
     });
     if (!response.ok) return;
     const newReview = await response.json();
-    const createDispatch = await dispatch(createReviewAction(newReview));
-    return createDispatch;
+    await dispatch(createReviewAction(newReview));
+    toastMessage("Review successfully created", "normal");
   };
 
 export const updateReviewThunk =
@@ -52,6 +53,6 @@ export const updateReviewThunk =
 
     if (!response.ok) return;
     const updatedReview = await response.json();
-    const updateDispatch = await dispatch(updateReviewAction(updatedReview));
-    return updateDispatch;
+    await dispatch(updateReviewAction(updatedReview));
+    toastMessage("Review successfully updated", "normal");
   };

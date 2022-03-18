@@ -6,7 +6,7 @@ import { ReviewsForm } from "../types/reviewsProps";
 import RootState from "../types/RootState";
 import { useRouter } from "next/router";
 import { updateReviewThunk } from "../redux/thunks/reviewThunks";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import Router from "next/router";
 import toastMessage from "../utils/toast";
 
@@ -29,11 +29,7 @@ const UpdateReview = (): JSX.Element => {
 
   const dispatch = useDispatch();
   const blannkFields = {
-    name: review?.name as string,
-    review: review?.review as string,
-    score: review?.score as number,
-    image: review?.image as string,
-    id: review?.id as string,
+    ...review,
   };
   const [formData, setFormData] = useState(blannkFields);
 

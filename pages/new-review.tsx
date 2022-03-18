@@ -39,13 +39,8 @@ const NewReview = (): JSX.Element => {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     event.preventDefault();
-    const returnDispatch: any = await dispatch(createReviewThunk(formData));
-    if (!returnDispatch.errorCode) {
-      toastMessage("Review successfully created", "normal");
-      setTimeout(() => {
-        Router.push("/");
-      }, 2000);
-    }
+    Router.push("/");
+    await dispatch(createReviewThunk(formData));
   };
 
   return (

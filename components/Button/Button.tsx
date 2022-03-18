@@ -24,6 +24,7 @@ const Button = ({ actionOnClick, type }: ButtonProps): JSX.Element => {
         onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
           actionOnClick()
         }
+        title={type}
       >
         {type === "delete" && (
           <DeleteForeverOutlinedIcon style={{ color: "#c73838" }} />

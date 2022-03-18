@@ -1,8 +1,10 @@
 import styled from "styled-components";
+import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
+import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
 
 interface ButtonProps {
   actionOnClick: () => void;
-  image: string;
+  type: string;
 }
 
 const ButtonGeneric = styled.button`
@@ -15,15 +17,21 @@ const ButtonImage = styled.img`
   height: 20px;
 `;
 
-const Button = ({ actionOnClick, image }: ButtonProps): JSX.Element => {
+const Button = ({ actionOnClick, type }: ButtonProps): JSX.Element => {
   return (
     <>
       <ButtonGeneric
         onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
           actionOnClick()
         }
+        title={type}
       >
-        <ButtonImage src={image} alt={`${image} button`}></ButtonImage>
+        {type === "delete" && (
+          <DeleteForeverOutlinedIcon style={{ color: "#c73838" }} />
+        )}
+        {type === "edit" && (
+          <ModeEditOutlineIcon style={{ color: "#1665C0" }} />
+        )}
       </ButtonGeneric>
     </>
   );

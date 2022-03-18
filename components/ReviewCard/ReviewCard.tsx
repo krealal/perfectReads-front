@@ -4,7 +4,7 @@ import { deleteReviewThunk } from "../../redux/thunks/reviewThunks";
 import Button from "../Button/Button";
 import Router from "next/router";
 import { Rating } from "@mui/material";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import toastMessage from "../../utils/toast";
 
@@ -20,6 +20,7 @@ const Card = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  position: relative;
 `;
 
 const ProfileImg = styled.img`
@@ -75,7 +76,7 @@ const Score = styled.div`
 const ButtonDiv = styled.div`
   display: flex;
   position: absolute;
-  right: 42px;
+  right: 10px;
 `;
 
 type ReviewProps = {
@@ -116,19 +117,19 @@ const ReviewCard = ({
         <ButtonDiv>
           <Button
             actionOnClick={() => {
-              deleteTask(id);
-            }}
-            image="/img/delete.png"
-          />
-
-          <Button
-            actionOnClick={() => {
               Router.push({
                 pathname: "/update-review",
                 query: { id: id },
               });
             }}
-            image="/img/edit.png"
+            type="edit"
+          />
+
+          <Button
+            actionOnClick={() => {
+              deleteTask(id);
+            }}
+            type="delete"
           />
         </ButtonDiv>
 

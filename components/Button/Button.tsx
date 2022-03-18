@@ -12,6 +12,7 @@ const ButtonGeneric = styled.button`
   margin-top: 5px;
   border: 0;
   background-color: transparent;
+  cursor: pointer;
 `;
 const ButtonImage = styled.img`
   height: 20px;

@@ -21,3 +21,8 @@ export const updateReviewAction = (review: ReviewsForm): TypeOfAction => ({
   type: actionTypes.editReview,
   payload: review,
 });
+
+export const loginAction = (user: string): TypeOfAction => ({
+  type: actionTypes.login,
+  payload: user,
+});

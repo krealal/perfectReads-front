@@ -40,7 +40,7 @@ const Navigation: FunctionComponent = ({ children }) => {
           </a>
         </Link>
 
-        <Link href="/Profile">
+        <Link href="/login">
           <a>
             <NavImg src="/img/profile.png" alt="" />
           </a>

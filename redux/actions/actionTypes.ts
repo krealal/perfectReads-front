@@ -3,6 +3,7 @@ const actionTypes = {
   deleteReview: "delete-review",
   createReview: "create-review",
   editReview: "edit-review",
+  login: "sign-in",
 };
 
 export default actionTypes;

@@ -2,6 +2,7 @@ import {
   createReviewAction,
   deleteReviewAction,
   getReviewAction,
+  loginAction,
   updateReviewAction,
 } from "./actionCreator";
 
@@ -71,7 +72,15 @@ describe("Given a createReviewAction action", () => {
 describe("Given a updateReviewAction action", () => {
   describe("When it receives an id 2", () => {
     test("Then it should make updateReviewAction and compare it with the expected action", () => {
-      const review = "2";
+      const review = [
+        {
+          name: "uwu",
+          image: "src/img/1.png",
+          score: 4,
+          review: "lorem",
+          id: "2",
+        },
+      ];
 
       const expectedAction = {
         type: "edit-review",
@@ -79,6 +88,22 @@ describe("Given a updateReviewAction action", () => {
       };
 
       const action = updateReviewAction(review);
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a loginAction action", () => {
+  describe("When it receibes user luis", () => {
+    test("Then it should make loginAction and compare it with the expected action ", () => {
+      const user = "luis";
+
+      const expectedAction = {
+        type: "sign-in",
+        payload: user,
+      };
+
+      const action = loginAction(user);
       expect(action).toEqual(expectedAction);
     });
   });

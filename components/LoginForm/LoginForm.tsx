@@ -20,14 +20,6 @@ const TittleForm = styled.h2`
   color: #000;
 `;
 
-interface State {
-  amount: string;
-  password: string;
-  weight: string;
-  weightRange: string;
-  showPassword: boolean;
-}
-
 interface FormProps {
   submit: any;
   changeData: (event: React.ChangeEvent<HTMLInputElement>) => void;

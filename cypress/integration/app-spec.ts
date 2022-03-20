@@ -10,3 +10,5 @@ describe("App", function () {
     cy.get("h2").should("contain", "Log in");
   });
 });
+
+export {};

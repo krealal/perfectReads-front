@@ -2,13 +2,11 @@ import TypeOfAction from "../../types/TypeOfAction";
 import { AnyAction } from "redux";
 import actionTypes from "../actions/actionTypes";
 import { HYDRATE } from "next-redux-wrapper";
+import { User } from "../../types/User";
 
-const userReducer = (currentUser = {}, action: TypeOfAction | {}) => {
+const userReducer = (currentUser: User[] = [], action: TypeOfAction | {}) => {
   let newUser;
   switch ((action as AnyAction).type) {
-    case HYDRATE:
-      return [...(action as AnyAction).payload.user];
-
     case actionTypes.login:
       newUser = { ...(action as AnyAction).user };
       break;

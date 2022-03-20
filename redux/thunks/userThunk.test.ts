@@ -12,6 +12,8 @@ afterEach(() => server.resetHandlers());
 // Clean up after the tests are finished.
 afterAll(() => server.close());
 
+jest.mock("jwt-decode", () => () => ({}));
+
 describe("Given a loginThunk function", () => {
   describe("When it is called", () => {
     test("Then it should dispatch a function", async () => {

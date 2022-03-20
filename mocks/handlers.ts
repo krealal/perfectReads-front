@@ -65,4 +65,17 @@ export const handlers = [
       );
     }
   ),
+
+  rest.post(
+    `${process.env.NEXT_PUBLIC_PERFECTREADS_API}/user/login`,
+    (req, res, ctx) => {
+      return res(
+        ctx.status(201),
+        ctx.json({
+          username: "luis",
+          password: "1234",
+        })
+      );
+    }
+  ),
 ];

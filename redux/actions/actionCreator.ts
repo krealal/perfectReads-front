@@ -1,6 +1,7 @@
 import actionTypes from "./actionTypes";
 import { Reviews, ReviewsForm } from "../../types/reviewsProps";
 import TypeOfAction from "../../types/TypeOfAction";
+import { User } from "../../types/User";
 
 export const getReviewAction = (review: Reviews): TypeOfAction => ({
   type: actionTypes.getReviews,
@@ -22,7 +23,7 @@ export const updateReviewAction = (review: ReviewsForm): TypeOfAction => ({
   payload: review,
 });
 
-export const loginAction = (user: string): TypeOfAction => ({
+export const loginAction = (user: User): TypeOfAction => ({
   type: actionTypes.login,
   payload: user,
 });

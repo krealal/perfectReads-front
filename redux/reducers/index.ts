@@ -4,7 +4,7 @@ import userReducer from "./userReducer";
 
 const rootReducer = combineReducers({
   reviewsList: reviewReducer,
-  user: userReducer,
+  userToken: userReducer,
 });
 
 export default rootReducer;

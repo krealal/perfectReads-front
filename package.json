@@ -9,7 +9,9 @@
     "lint": "next lint",
     "prepare": "husky install",
     "test": "jest --passWithNoTests",
-    "test-coverage": "jest --watchAll --coverage"
+    "test-coverage": "jest --watchAll --coverage",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "dependencies": {
     "@emotion/react": "^11.8.2",
@@ -35,7 +37,9 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.3",
-    "whatwg-fetch": "^3.6.2"
+    "whatwg-fetch": "^3.6.2",
+    "cypress": "6.2.0",
+    "eslint-plugin-cypress": "2.11.2"
   },
   "devDependencies": {
     "@types/node": "17.0.21",

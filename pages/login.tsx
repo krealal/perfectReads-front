@@ -1,5 +1,8 @@
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import LoginForm from "../components/LoginForm/LoginForm";
+import React, { FormEventHandler, useState } from "react";
+import { loginThunk } from "../redux/thunks/userThunk";
 
 const RegisterCont = styled.section`
   height: 100vh;
@@ -34,16 +37,36 @@ const Tittle2 = styled.a`
   color: #000000;
 `;
 
-const login = (): JSX.Element => {
+const Login = (): JSX.Element => {
+  const dispatch = useDispatch();
+
+  const blannkFields = {
+    username: "",
+    password: "",
+  };
+  const [formData, setFormData] = useState(blannkFields);
+
+  const changeData: FormEventHandler = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setFormData({ ...formData, [event.target.id]: event.target.value });
+  };
+
+  const form: FormEventHandler = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    event.preventDefault();
+    await dispatch(loginThunk(formData));
+  };
   return (
     <RegisterCont>
       <TittlePage>
         <Tittle1>perfect</Tittle1>
         <Tittle2>reads</Tittle2>
       </TittlePage>
-      <LoginForm />
+      <LoginForm changeData={changeData} formData={formData} submit={form} />
     </RegisterCont>
   );
 };
 
-export default login;
+export default Login;

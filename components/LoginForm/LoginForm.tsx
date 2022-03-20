@@ -3,16 +3,6 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import styled from "styled-components";
-import {
-  FormControl,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  OutlinedInput,
-  Rating,
-} from "@mui/material";
-import { useState } from "react";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
 import Link from "next/link";
 
 const ButtonContainer = styled.div`
@@ -38,33 +28,17 @@ interface State {
   showPassword: boolean;
 }
 
-const LoginForm = (): JSX.Element => {
-  const handleMouseDownPassword = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
-    event.preventDefault();
-  };
+interface FormProps {
+  submit: any;
+  changeData: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  formData: any;
+}
 
-  const [values, setValues] = React.useState<State>({
-    amount: "",
-    password: "",
-    weight: "",
-    weightRange: "",
-    showPassword: false,
-  });
-
-  const handleClickShowPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
-    });
-  };
-
-  const handleChange =
-    (prop: keyof State) => (event: React.ChangeEvent<HTMLInputElement>) => {
-      setValues({ ...values, [prop]: event.target.value });
-    };
-
+const LoginForm = ({
+  submit,
+  formData,
+  changeData,
+}: FormProps): JSX.Element => {
   return (
     <>
       <Box
@@ -77,33 +51,23 @@ const LoginForm = (): JSX.Element => {
         }}
         noValidate
         autoComplete="off"
+        onSubmit={submit}
       >
         <TittleForm>Log in</TittleForm>
-        <TextField id="user" label="User" type="text" />
-        <FormControl sx={{ m: 2, width: "25ch" }} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">
-            Password
-          </InputLabel>
-          <OutlinedInput
-            id="outlined-adornment-password"
-            type={values.showPassword ? "text" : "password"}
-            value={values.password}
-            onChange={handleChange("password")}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
-            label="Password"
-          />
-        </FormControl>
+        <TextField
+          id="username"
+          label="Username"
+          type="text"
+          onChange={changeData}
+          value={formData.username}
+        />
+        <TextField
+          id="password"
+          label="password"
+          type="password"
+          onChange={changeData}
+          value={formData.password}
+        />
 
         <ButtonContainer>
           <Button variant="contained" type="submit">

@@ -7,7 +7,13 @@ import { useState } from "react";
 
 const ButtonContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+`;
+
+const RatingDiv = styled.div`
+  display: flex;
+  justify-content: space-around;
   align-items: center;
 `;
 
@@ -66,16 +72,19 @@ const Form = ({
           onChange={changeData}
           value={formData.image}
         />
+        <RatingDiv>
+          <p>Rating</p>
+          <Rating
+            id="score"
+            name="simple-controlled"
+            value={formData.score}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+              getScore((event.target as HTMLTextAreaElement).value);
+            }}
+          />
+        </RatingDiv>
 
-        <Rating
-          id="score"
-          name="simple-controlled"
-          value={formData.score}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-            getScore((event.target as HTMLTextAreaElement).value);
-          }}
-        />
         <TextField
           id="review"
           label="Review"

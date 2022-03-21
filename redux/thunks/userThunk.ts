@@ -36,9 +36,6 @@ export const registerThunk =
       method: "POST",
       mode: "cors",
       body: data,
-      headers: {
-        "content-type": "multipart/form-data",
-      },
     });
     try {
       const newUser: UserRegister = await response.json();

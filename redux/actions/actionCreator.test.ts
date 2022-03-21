@@ -3,6 +3,7 @@ import {
   deleteReviewAction,
   getReviewAction,
   loginAction,
+  registerAction,
   updateReviewAction,
 } from "./actionCreator";
 
@@ -96,7 +97,10 @@ describe("Given a updateReviewAction action", () => {
 describe("Given a loginAction action", () => {
   describe("When it receibes user luis", () => {
     test("Then it should make loginAction and compare it with the expected action ", () => {
-      const user = "luis";
+      const user = {
+        username: "uwu",
+        password: "1234",
+      };
 
       const expectedAction = {
         type: "sign-in",
@@ -104,6 +108,29 @@ describe("Given a loginAction action", () => {
       };
 
       const action = loginAction(user);
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given", () => {
+  describe("When ", () => {
+    test("Then", () => {
+      const user = {
+        username: "uwu",
+        password: "1234",
+        name: "uwu",
+        about: "i like turtles",
+        email: "uwu@uwu.usu",
+        image: "src/1.jpg",
+      };
+
+      const expectedAction = {
+        type: "register-user",
+        payload: user,
+      };
+
+      const action = registerAction(user);
       expect(action).toEqual(expectedAction);
     });
   });

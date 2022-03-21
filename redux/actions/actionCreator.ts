@@ -1,7 +1,7 @@
 import actionTypes from "./actionTypes";
 import { Reviews, ReviewsForm } from "../../types/reviewsProps";
 import TypeOfAction from "../../types/TypeOfAction";
-import { User } from "../../types/User";
+import { User, UserRegister } from "../../types/User";
 
 export const getReviewAction = (review: Reviews): TypeOfAction => ({
   type: actionTypes.getReviews,
@@ -25,5 +25,10 @@ export const updateReviewAction = (review: ReviewsForm): TypeOfAction => ({
 
 export const loginAction = (user: User): TypeOfAction => ({
   type: actionTypes.login,
+  payload: user,
+});
+
+export const registerAction = (user: UserRegister): TypeOfAction => ({
+  type: actionTypes.register,
   payload: user,
 });

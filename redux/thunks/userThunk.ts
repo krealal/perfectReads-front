@@ -1,6 +1,7 @@
 import jwtDecode from "jwt-decode";
 import { Dispatch } from "redux";
-import { loginAction } from "../actions/actionCreator";
+import { UserRegister } from "../../types/User";
+import { loginAction, registerAction } from "../actions/actionCreator";
 
 const url: string = `${process.env.NEXT_PUBLIC_PERFECTREADS_API}`;
 
@@ -20,3 +21,30 @@ export const loginThunk = (user: any) => async (dispatch: Dispatch) => {
   localStorage.setItem("token", token.token);
   dispatch(loginAction({ username, password: token.token }));
 };
+
+export const registerThunk =
+  (user: UserRegister) => async (dispatch: Dispatch) => {
+    const data = new FormData();
+    data.append("username", user.username);
+    data.append("password", user.password);
+    data.append("name", user.name);
+    data.append("image", user.image);
+    data.append("about", user.about);
+    data.append("email", user.email);
+
+    const response = await fetch(`${url}/user/register`, {
+      method: "POST",
+      mode: "cors",
+      body: data,
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    });
+    try {
+      const newUser: UserRegister = await response.json();
+      dispatch(registerAction(newUser));
+      return newUser;
+    } catch (error) {
+      return { error: "Can't create the user" };
+    }
+  };

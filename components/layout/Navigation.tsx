@@ -39,7 +39,6 @@ const NavList = styled.div`
       font-size: 15px;
       line-height: 18px;
       letter-spacing: 0.11em;
-
       color: #000000;
     }
     .linkImg {

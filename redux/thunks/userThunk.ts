@@ -24,15 +24,27 @@ export const loginThunk = (user: any) => async (dispatch: Dispatch) => {
 
 export const registerThunk =
   (user: UserRegister) => async (dispatch: Dispatch) => {
+    const data = new FormData();
+    data.append("username", user.username);
+    data.append("password", user.password);
+    data.append("name", user.name);
+    data.append("image", user.image);
+    data.append("about", user.about);
+    data.append("email", user.email);
+
     const response = await fetch(`${url}/user/register`, {
       method: "POST",
       mode: "cors",
+      body: data,
       headers: {
-        "Content-Type": "application/json",
+        "content-type": "multipart/form-data",
       },
-      body: JSON.stringify(user),
     });
-    if (!response.ok) return;
-    const newUser = await response.json();
-    await dispatch(registerAction(newUser));
+    try {
+      const newUser: UserRegister = await response.json();
+      dispatch(registerAction(newUser));
+      return newUser;
+    } catch (error) {
+      return { error: "Can't create the user" };
+    }
   };

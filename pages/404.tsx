@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Section404 = styled.section`
   padding: 40px 0;
   background: #fff;
-  height: 100vw;
+  height: 80vh;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -14,10 +14,10 @@ const Section404 = styled.section`
     height: 600px;
     width: 400px;
   }
-  &h1 {
+  & h1 {
     font-size: 80px;
   }
-  &h3 {
+  & h3 {
     font-size: 40px;
   }
   @media (min-width: 400px) {
@@ -33,9 +33,8 @@ const Section404 = styled.section`
 const Custom404 = () => {
   return (
     <Section404>
-      <section className="image404">
-        <h1>404</h1>
-      </section>
+      <h1>404</h1>
+      <section className="image404"></section>
       <h3>Page not found</h3>
     </Section404>
   );

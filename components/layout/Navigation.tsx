@@ -1,8 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import { Search } from "@mui/icons-material";
 import { TextField } from "@mui/material";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import { FunctionComponent } from "react";
 import styled from "styled-components";
@@ -18,6 +16,9 @@ const NavList = styled.div`
   justify-content: space-evenly;
   align-items: center;
   p {
+    display: none;
+  }
+  .searchbar {
     display: none;
   }
 
@@ -44,6 +45,9 @@ const NavList = styled.div`
     .linkImg {
       display: none;
     }
+    .searchbar {
+      display: block;
+    }
   }
 `;
 
@@ -63,7 +67,7 @@ const Navigation: FunctionComponent = ({ children }) => {
 
       <NavList>
         <p>perfectreads</p>
-        <TextField label="search book" id="search" />
+        <TextField label="search book" id="search" className="searchbar" />
 
         <Link href="/" passHref>
           <img

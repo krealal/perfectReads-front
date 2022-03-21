@@ -6,9 +6,9 @@ describe("Given the navigation layout", () => {
     test("It should find 3 links", () => {
       render(<Navigation />);
 
-      const links = screen.getAllByRole("link");
+      const links = screen.getByRole("textbox", { name: /search book/i });
 
-      expect(links).toHaveLength(3);
+      expect(links).toBeInTheDocument();
     });
   });
 });

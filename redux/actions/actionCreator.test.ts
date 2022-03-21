@@ -113,7 +113,7 @@ describe("Given a loginAction action", () => {
   });
 });
 
-describe("Given", () => {
+describe("Given a registerAction action", () => {
   describe("When ", () => {
     test("Then", () => {
       const user = {

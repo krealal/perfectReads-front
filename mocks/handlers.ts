@@ -78,4 +78,20 @@ export const handlers = [
       );
     }
   ),
+
+  rest.post(
+    `${process.env.NEXT_PUBLIC_PERFECTREADS_API}/user/register`,
+    (req, res, ctx) =>
+      res(
+        ctx.status(201),
+        ctx.json({
+          name: "iwi",
+          username: "uwu",
+          password: "1234",
+          about: "i like turtles",
+          image: "src/1.jpg",
+          email: "uwu@uwu.uwu",
+        })
+      )
+  ),
 ];

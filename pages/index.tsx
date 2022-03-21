@@ -13,6 +13,9 @@ import { wrapper } from "../redux/store";
 
 const BookCover = styled.img`
   height: 180px;
+  @media (min-width: 600px) {
+    height: 2000px;
+  }
 `;
 
 const BookInfoDiv = styled.div`

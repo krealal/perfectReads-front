@@ -4,6 +4,7 @@ const actionTypes = {
   createReview: "create-review",
   editReview: "edit-review",
   login: "sign-in",
+  register: "register-user",
 };
 
 export default actionTypes;

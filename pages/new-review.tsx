@@ -39,7 +39,8 @@ const NewReview = (): JSX.Element => {
   ) => {
     event.preventDefault();
     Router.push("/");
-    await dispatch(createReviewThunk(formData));
+    const createReview = dispatch(createReviewThunk(formData));
+    await createReview;
   };
 
   return (

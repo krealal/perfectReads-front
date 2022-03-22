@@ -28,6 +28,7 @@ const customJestConfig = {
     "!**/*.style.ts",
     "!utils/*",
     "!cypress/**/*",
+    "!cypress.json",
   ],
 };
 

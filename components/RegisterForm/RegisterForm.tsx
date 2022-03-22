@@ -9,6 +9,7 @@ const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
 `;
 
 const TittleForm = styled.h2`
@@ -35,6 +36,7 @@ const RegisterForm = ({
 }: FormProps): JSX.Element => {
   return (
     <>
+      <TittleForm>Register</TittleForm>
       <Box
         component="form"
         sx={{
@@ -47,7 +49,6 @@ const RegisterForm = ({
         autoComplete="off"
         onSubmit={submit}
       >
-        <TittleForm>Register</TittleForm>
         <TextField
           id="name"
           label="Name"
@@ -86,12 +87,13 @@ const RegisterForm = ({
           inputProps={{ maxLength: 205 }}
           value={formData.about}
         />
-
-        <Button variant="contained" component="label">
-          Upload File
-          <input id="image" type="file" hidden onChange={changeImage} />
-        </Button>
-
+        Profile picture
+        <input
+          id="image"
+          type="file"
+          onChange={changeImage}
+          accept=".png, .jpg, .gif"
+        />
         <ButtonContainer>
           <Button variant="contained" type="submit">
             REGISTER

@@ -5,7 +5,7 @@ import LoginForm from "../components/LoginForm/LoginForm";
 import React, { FormEventHandler, useState } from "react";
 import { loginThunk } from "../redux/thunks/userThunk";
 
-const RegisterCont = styled.div`
+const LoginCont = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
@@ -83,7 +83,7 @@ const Login = (): JSX.Element => {
     await dispatch(loginThunk(formData));
   };
   return (
-    <RegisterCont>
+    <LoginCont>
       <div className="tittleContainer">
         <h1 className="tittlePerfect">perfect</h1>
         <h1 className="tittleReads">reads</h1>
@@ -96,7 +96,7 @@ const Login = (): JSX.Element => {
         alt="library"
         className="libraryImage"
       ></img>
-    </RegisterCont>
+    </LoginCont>
   );
 };
 

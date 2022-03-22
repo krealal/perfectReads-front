@@ -3,31 +3,39 @@ import styled from "styled-components";
 const Section404 = styled.section`
   padding: 40px 0;
   background: #fff;
-  height: 100vh;
+  height: 80vh;
   text-align: center;
-`;
-
-const Image404 = styled.section`
-  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
-  height: 400px;
-  background-position: center;
-`;
-
-const Tittle404 = styled.h1`
-  font-size: 80px;
-`;
-
-const H3404 = styled.h3`
-  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & .image404 {
+    background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    background-position: center;
+    height: 600px;
+    width: 400px;
+  }
+  & h1 {
+    font-size: 80px;
+  }
+  & h3 {
+    font-size: 40px;
+  }
+  @media (min-width: 400px) {
+    .image404 {
+      background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+      background-position: center;
+      height: 400px;
+      width: 600px;
+    }
+  }
 `;
 
 const Custom404 = () => {
   return (
     <Section404>
-      <Image404>
-        <Tittle404>404</Tittle404>
-      </Image404>
-      <H3404>Page not found</H3404>
+      <h1>404</h1>
+      <section className="image404"></section>
+      <h3>Page not found</h3>
     </Section404>
   );
 };

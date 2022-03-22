@@ -1,11 +1,10 @@
 import Router from "next/router";
 import React, { FormEventHandler, useState } from "react";
 import { useDispatch } from "react-redux";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import styled from "styled-components";
 import Form from "../components/Form/Form";
 import { createReviewThunk } from "../redux/thunks/reviewThunks";
-import toastMessage from "../utils/toast";
 
 const RegisterCont = styled.section`
   height: 100vh;

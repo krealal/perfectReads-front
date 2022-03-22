@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import LoginForm from "../components/LoginForm/LoginForm";
 import React, { FormEventHandler, useState } from "react";
+import Router from "next/router";
 import { loginThunk } from "../redux/thunks/userThunk";
 
 const LoginCont = styled.div`
@@ -81,6 +82,7 @@ const Login = (): JSX.Element => {
   ) => {
     event.preventDefault();
     await dispatch(loginThunk(formData));
+    Router.push("/");
   };
   return (
     <LoginCont>

@@ -100,52 +100,88 @@ const ReviewCard = ({
     dispatch(deleteReviewThunk(id));
   };
 
+  if (typeof window !== "undefined") {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      return (
+        <>
+          <ToastContainer
+            position="top-right"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+          <Card>
+            <ProfileImg src={image} alt={name} />
+            <Username>{name}</Username>
+            <Tittle>Review</Tittle>
+            <Review>{review}</Review>
+            <Score>
+              <Rating
+                name="read-only"
+                value={score}
+                title={`${name}'s score`}
+                readOnly
+              />
+            </Score>
+          </Card>
+        </>
+      );
+    }
+  }
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-      <Card>
-        <ButtonDiv>
-          <Button
-            actionOnClick={() => {
-              Router.push({
-                pathname: "/update-review",
-                query: { id: id },
-              });
-            }}
-            type="edit"
-          />
+      <>
+        <ToastContainer
+          position="top-right"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+        <Card>
+          <ButtonDiv>
+            <Button
+              actionOnClick={() => {
+                Router.push({
+                  pathname: "/update-review",
+                  query: { id: id },
+                });
+              }}
+              type="edit"
+            />
 
-          <Button
-            actionOnClick={() => {
-              deleteTask(id);
-            }}
-            type="delete"
-          />
-        </ButtonDiv>
+            <Button
+              actionOnClick={() => {
+                deleteTask(id);
+              }}
+              type="delete"
+            />
+          </ButtonDiv>
 
-        <ProfileImg src={image} alt={name} />
-        <Username>{name}</Username>
-        <Tittle>Review</Tittle>
-        <Review>{review}</Review>
-        <Score>
-          <Rating
-            name="read-only"
-            value={score}
-            title={`${name}'s score`}
-            readOnly
-          />
-        </Score>
-      </Card>
+          <ProfileImg src={image} alt={name} />
+          <Username>{name}</Username>
+          <Tittle>Review</Tittle>
+          <Review>{review}</Review>
+          <Score>
+            <Rating
+              name="read-only"
+              value={score}
+              title={`${name}'s score`}
+              readOnly
+            />
+          </Score>
+        </Card>
+      </>
     </>
   );
 };

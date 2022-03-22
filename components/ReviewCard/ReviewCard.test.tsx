@@ -65,6 +65,13 @@ describe("Given a reviewCard component", () => {
   describe("when the user clicks on delete button", () => {
     test("then should be show a toastr with role alert", async () => {
       jest.advanceTimersByTime(1000);
+      const mockLocalStorage = {
+        getItem: () =>
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicGVwZSIsInVzZXJuYW1lIjoicGVwZSIsImlkIjoiNjIzMzFkZjQ3NDMzMGZiZDI4ZDU5NWUxIiwiaWF0IjoxNjQ3NTE3Mjg4fQ.suBLCba7CxFLfXRDudmvdL1uRzVFGAlnWxkOngW0i1A",
+      };
+      Object.defineProperty(window, "localStorage", {
+        value: mockLocalStorage,
+      });
 
       const review = {
         image: "/img/fav-blank.png",
@@ -97,6 +104,13 @@ describe("Given a reviewCard component", () => {
 
   describe("When the user clicks on edit page", () => {
     test("then it should call next/Router with method push", () => {
+      const mockLocalStorage = {
+        getItem: () =>
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicGVwZSIsInVzZXJuYW1lIjoicGVwZSIsImlkIjoiNjIzMzFkZjQ3NDMzMGZiZDI4ZDU5NWUxIiwiaWF0IjoxNjQ3NTE3Mjg4fQ.suBLCba7CxFLfXRDudmvdL1uRzVFGAlnWxkOngW0i1A",
+      };
+      Object.defineProperty(window, "localStorage", {
+        value: mockLocalStorage,
+      });
       const review = {
         image: "/img/fav-blank.png",
         name: "marc stars",

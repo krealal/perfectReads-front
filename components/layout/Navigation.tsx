@@ -47,6 +47,11 @@ const NavList = styled.div`
     .searchbar {
       display: block;
     }
+    .reviews {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
   }
 `;
 

@@ -115,6 +115,11 @@ const BookMain = styled.main`
     .separator {
       width: 90%;
     }
+    .reviews {
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
   }
 `;
 

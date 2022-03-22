@@ -15,12 +15,12 @@ const Card = styled.div`
   background: #dedede;
   justify-content: center;
   border-radius: 4px;
-  margin-top: 55px;
-  margin-bottom: 55px;
+  margin: 25px;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   position: relative;
+  padding: 12px;
 `;
 
 const ProfileImg = styled.img`

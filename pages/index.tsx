@@ -20,7 +20,8 @@ const BookMain = styled.main`
     margin-top: 80px;
   }
   .bookCover {
-    height: 180px;
+    height: 272px;
+    width: 180px;
   }
   .bookInfoDiv {
     display: flex;
@@ -84,6 +85,36 @@ const BookMain = styled.main`
     flex-direction: column;
     align-items: center;
     margin-bottom: 90px;
+  }
+
+  @media (min-width: 400px) {
+    .bookdiv {
+      background-image: url("https://www.tor.com/wp-content/uploads/2016/08/WoK-wallpaper-1680x1050.jpg");
+      height: 600px;
+      background-size: cover;
+      background-position: center;
+      flex-direction: column-reverse;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+    .scoreImage {
+      display: none;
+    }
+    .bookNumbers {
+      display: none;
+    }
+    .bookTittle {
+      font-size: 48px;
+    }
+    .bookAuthor {
+      font-size: 25px;
+    }
+    .bookInfoDiv {
+      align-items: center;
+    }
+    .separator {
+      width: 90%;
+    }
   }
 `;
 

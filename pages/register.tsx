@@ -4,6 +4,8 @@ import styled from "styled-components";
 import React, { FormEventHandler, useState } from "react";
 import { registerThunk } from "../redux/thunks/userThunk";
 import RegisterForm from "../components/RegisterForm/RegisterForm";
+import Router from "next/router";
+import { ToastContainer } from "react-toastify";
 
 const LoginCont = styled.div`
   height: 1200px;
@@ -103,16 +105,28 @@ const Register = (): any => {
     });
   };
 
-  const submit: FormEventHandler = (
+  const submit: FormEventHandler = async (
     event: React.ChangeEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
     const data = formData;
     setFormData(blankFields);
-    dispatch(registerThunk(data));
+    await dispatch(registerThunk(data));
+    Router.push("/login");
   };
   return (
     <LoginCont>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <div className="tittleContainer">
         <h1 className="tittlePerfect">perfect</h1>
         <h1 className="tittleReads">reads</h1>

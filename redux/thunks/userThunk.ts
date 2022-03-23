@@ -1,6 +1,7 @@
 import jwtDecode from "jwt-decode";
 import { Dispatch } from "redux";
 import { UserRegister } from "../../types/User";
+import toastMessage from "../../utils/toast";
 import { loginAction, registerAction } from "../actions/actionCreator";
 
 const url: string = `${process.env.NEXT_PUBLIC_PERFECTREADS_API}`;
@@ -37,11 +38,8 @@ export const registerThunk =
       mode: "cors",
       body: data,
     });
-    try {
-      const newUser: UserRegister = await response.json();
-      dispatch(registerAction(newUser));
-      return newUser;
-    } catch (error) {
-      return { error: "Can't create the user" };
-    }
+    if (!response.ok) return;
+    const newUser: UserRegister = await response.json();
+    await dispatch(registerAction(newUser));
+    toastMessage("User successfully created!", "normal");
   };

@@ -5,6 +5,7 @@ import LoginForm from "../components/LoginForm/LoginForm";
 import React, { FormEventHandler, useState } from "react";
 import Router from "next/router";
 import { loginThunk } from "../redux/thunks/userThunk";
+import { NextPage } from "next";
 
 const LoginCont = styled.div`
   height: 100vh;
@@ -62,7 +63,7 @@ const LoginCont = styled.div`
   }
 `;
 
-const Login = (): JSX.Element => {
+const Login: NextPage = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const blannkFields = {
@@ -84,6 +85,8 @@ const Login = (): JSX.Element => {
     const loginDispatch = dispatch(loginThunk(formData));
     await loginDispatch;
     Router.push("/");
+
+    console.log(Router.push);
   };
   return (
     <LoginCont>

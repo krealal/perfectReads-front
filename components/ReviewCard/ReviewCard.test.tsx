@@ -3,7 +3,6 @@ import ReviewCard from "./ReviewCard";
 import { renderWithProviders } from "../../jest.setup";
 import userEvent from "@testing-library/user-event";
 import Router from "next/router";
-import { expect } from "@jest/globals";
 
 jest.mock("next/router");
 

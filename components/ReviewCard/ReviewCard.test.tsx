@@ -4,9 +4,6 @@ import { renderWithProviders } from "../../jest.setup";
 import userEvent from "@testing-library/user-event";
 import Router from "next/router";
 import { expect } from "@jest/globals";
-import "@testing-library/jest-dom";
-import "@testing-library/jest-dom/extend-expect";
-import "jest-dom/extend-expect";
 
 jest.mock("next/router");
 

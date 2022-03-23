@@ -81,7 +81,8 @@ const Login = (): JSX.Element => {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     event.preventDefault();
-    await dispatch(loginThunk(formData));
+    const loginDispatch = dispatch(loginThunk(formData));
+    await loginDispatch;
     Router.push("/");
   };
   return (

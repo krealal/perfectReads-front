@@ -2,8 +2,8 @@ import { screen } from "@testing-library/react";
 import ReviewCard from "./ReviewCard";
 import { renderWithProviders } from "../../jest.setup";
 import userEvent from "@testing-library/user-event";
-import { waitForElementToBeRemoved } from "@testing-library/react";
-import Router, { useRouter } from "next/router";
+import Router from "next/router";
+import { expect } from "@jest/globals";
 
 jest.mock("next/router");
 

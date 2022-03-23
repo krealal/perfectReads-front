@@ -1,14 +1,12 @@
-import { FormEventHandler, useContext, useState } from "react";
+import { FormEventHandler, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import Form from "../components/Form/Form";
 import { ReviewsForm } from "../types/reviewsProps";
 import RootState from "../types/RootState";
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 import { updateReviewThunk } from "../redux/thunks/reviewThunks";
 import { ToastContainer } from "react-toastify";
-import Router from "next/router";
-import toastMessage from "../utils/toast";
 
 const RegisterCont = styled.section`
   height: 100vh;
@@ -25,7 +23,9 @@ const UpdateReview = (): JSX.Element => {
     (state) => state.reviewsList
   );
 
-  const review: any = reviewState.find((review) => review.id === id);
+  const review: any = reviewState.find(
+    (actualReview) => actualReview.id === id
+  );
 
   const dispatch = useDispatch();
   const blannkFields = {
@@ -44,7 +44,8 @@ const UpdateReview = (): JSX.Element => {
   ) => {
     event.preventDefault();
     Router.push("/");
-    await dispatch(updateReviewThunk(formData));
+    const updateDispatch = dispatch(updateReviewThunk(formData));
+    await updateDispatch;
   };
 
   const getRatting = (rating: number) => {

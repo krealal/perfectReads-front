@@ -60,12 +60,6 @@ const Review = styled.div`
   letter-spacing: 0.11em;
 `;
 
-const ScoreImg = styled.img`
-  margin-top: 8px;
-  margin-bottom: 20px;
-  height: 25px;
-`;
-
 const Score = styled.div`
   margin-left: 15px;
   align-self: flex-start;
@@ -95,9 +89,9 @@ const ReviewCard = ({
   score,
 }: ReviewProps): JSX.Element => {
   const dispatch = useDispatch();
-  const deleteTask = (id: string) => {
+  const deleteTask = (idToDelete: string) => {
     toastMessage("Review successfully deleted", "normal");
-    dispatch(deleteReviewThunk(id));
+    dispatch(deleteReviewThunk(idToDelete));
   };
 
   if (typeof window !== "undefined") {

@@ -25,7 +25,7 @@ describe("given a registerForm component", () => {
   });
 
   describe("when its rendered", () => {
-    test("then it should be find the heading 'new review'", () => {
+    test("then it should be find input name and type 'hola buenos dias'", async () => {
       const inputedText = "hola buenos días";
       const submit = jest.fn();
       render(

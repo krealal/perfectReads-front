@@ -4,6 +4,8 @@
     "foo": "bar",
     "baz": "quux",
     "USER": "kevin",
-    "PWD": "kevin"
+    "PWD": "kevin",
+    "EMAIL": "test@test.com",
+    "ABOUT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   }
 }

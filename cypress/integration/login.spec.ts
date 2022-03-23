@@ -23,8 +23,8 @@ describe("Given a login page", function () {
 
   describe("when the user types password but not username", () => {
     it("then the button should be disabled", () => {
-      cy.get("button").should("be.disabled");
       cy.get("input").eq(1).type(password).should("have.value", password);
+      cy.get("button").should("be.disabled");
     });
   });
 
@@ -32,6 +32,7 @@ describe("Given a login page", function () {
     it("Then should write username and password an click on login button", function () {
       cy.get("input").eq(0).type(user).should("have.value", user);
       cy.get("input").eq(1).type(password).should("have.value", password);
+      cy.get("button").should("not.be.disabled");
       cy.get("button").click();
     });
   });

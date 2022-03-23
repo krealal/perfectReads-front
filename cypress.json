@@ -1,3 +1,9 @@
 {
-  "baseUrl": "https://perfectreads-kevin-real.netlify.app/"
+  "baseUrl": "https://perfectreads-kevin-real.netlify.app/",
+  "env": {
+    "foo": "bar",
+    "baz": "quux",
+    "USER": "kevin",
+    "PWD": "skcmlka.mcñaslmdñalsmdañlsdm"
+  }
 }

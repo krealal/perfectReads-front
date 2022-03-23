@@ -27,6 +27,8 @@ const customJestConfig = {
     "!redux/store/*",
     "!**/*.style.ts",
     "!utils/*",
+    "!cypress/**/*",
+    "!cypress.json",
   ],
 };
 

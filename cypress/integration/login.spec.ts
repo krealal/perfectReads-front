@@ -1,5 +1,6 @@
 // type definitions for Cypress object "cy"
 /// <reference types="cypress" />
+
 const user = Cypress.env("USER");
 const password = Cypress.env("PWD");
 

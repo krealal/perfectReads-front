@@ -14,6 +14,8 @@ const customJestConfig = {
   moduleDirectories: ["node_modules", "<rootDir>/"],
   testEnvironment: "jest-environment-jsdom",
 
+  modulePathIgnorePatterns: ["<rootDir>/cypress"],
+
   collectCoverageFrom: [
     "**/*.tsx",
     "**/*.ts",
@@ -29,6 +31,7 @@ const customJestConfig = {
     "!utils/*",
     "!cypress/**/*",
     "!cypress.json",
+    "!cypress/integration/*.ts",
   ],
 };
 

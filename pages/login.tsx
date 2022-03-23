@@ -71,6 +71,8 @@ const Login: NextPage = (): JSX.Element => {
     password: "",
   };
   const [formData, setFormData] = useState(blannkFields);
+  const isFormInvalid: boolean =
+    formData.username === "" || formData.password === "";
 
   const changeData: FormEventHandler = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -95,7 +97,12 @@ const Login: NextPage = (): JSX.Element => {
         <h1 className="tittleReads">reads</h1>
       </div>
       <section className="sectionForm">
-        <LoginForm changeData={changeData} formData={formData} submit={form} />
+        <LoginForm
+          changeData={changeData}
+          formData={formData}
+          submit={form}
+          formValid={isFormInvalid}
+        />
       </section>
       <img
         src="https://a.travel-assets.com/findyours-php/viewfinder/images/res40/200000/200441.jpg"

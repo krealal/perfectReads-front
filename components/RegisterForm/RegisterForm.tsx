@@ -26,6 +26,7 @@ interface FormProps {
   changeData: (event: React.ChangeEvent<HTMLInputElement>) => void;
   formData: any;
   changeImage: any;
+  formValid: boolean;
 }
 
 const RegisterForm = ({
@@ -33,6 +34,7 @@ const RegisterForm = ({
   formData,
   changeData,
   changeImage,
+  formValid,
 }: FormProps): JSX.Element => {
   return (
     <>
@@ -95,7 +97,7 @@ const RegisterForm = ({
           accept=".png, .jpg, .gif"
         />
         <ButtonContainer>
-          <Button variant="contained" type="submit">
+          <Button variant="contained" type="submit" disabled={formValid}>
             REGISTER
           </Button>
           <p>

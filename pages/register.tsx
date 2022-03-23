@@ -70,12 +70,25 @@ const Register = (): any => {
   const blankFields = {
     username: "",
     password: "",
-    image: "",
+    image: null,
     about: "",
     name: "",
     email: "",
   };
+
+  const isMail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
   const [formData, setFormData] = useState(blankFields);
+
+  const isFormInvalid: boolean =
+    formData.username === "" ||
+    formData.password === "" ||
+    formData.name === "" ||
+    formData.about === "" ||
+    formData.email === "" ||
+    formData.email === "" ||
+    !isMail.test(formData.email) ||
+    formData.image === null;
 
   const changeData: FormEventHandler = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -110,6 +123,7 @@ const Register = (): any => {
           formData={formData}
           submit={submit}
           changeImage={changeFile}
+          formValid={isFormInvalid}
         />
       </section>
       <img

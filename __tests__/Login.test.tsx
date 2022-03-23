@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { fireEvent } from "@testing-library/dom";
 import Login from "../pages/login";
 import { wrapper } from "../redux/store";
 
@@ -29,7 +29,7 @@ describe("given a login page", () => {
       render(<WrappedComponent />);
 
       const button = screen.getByRole("button", { name: /login/i });
-      await userEvent.click(button);
+      await fireEvent.click(button);
     });
   });
 });

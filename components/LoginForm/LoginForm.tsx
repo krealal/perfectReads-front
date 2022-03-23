@@ -24,12 +24,14 @@ interface FormProps {
   submit: any;
   changeData: (event: React.ChangeEvent<HTMLInputElement>) => void;
   formData: any;
+  formValid: boolean;
 }
 
 const LoginForm = ({
   submit,
   formData,
   changeData,
+  formValid,
 }: FormProps): JSX.Element => {
   return (
     <>
@@ -62,7 +64,7 @@ const LoginForm = ({
         />
 
         <ButtonContainer>
-          <Button variant="contained" type="submit">
+          <Button variant="contained" type="submit" disabled={formValid}>
             LOGIN
           </Button>
           <p>

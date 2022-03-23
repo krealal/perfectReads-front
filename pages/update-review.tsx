@@ -43,9 +43,9 @@ const UpdateReview = (): JSX.Element => {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     event.preventDefault();
-    Router.push("/");
     const updateDispatch = dispatch(updateReviewThunk(formData));
     await updateDispatch;
+    Router.push("/");
   };
 
   const getRatting = (rating: number) => {

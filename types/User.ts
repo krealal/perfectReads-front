@@ -5,7 +5,7 @@ export interface User {
 
 export interface UserRegister extends User {
   name: string;
-  image: string;
+  image: any;
   about: string;
   email: string;
 }

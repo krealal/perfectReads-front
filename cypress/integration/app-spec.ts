@@ -1,21 +1,39 @@
 // type definitions for Cypress object "cy"
 /// <reference types="cypress" />
+const user = Cypress.env("USER");
+const password = Cypress.env("PWD");
 
-describe("App", function () {
+describe("Given a login page", function () {
   beforeEach(function () {
     cy.visit("/login");
+    cy.viewport(1385, 875);
+  });
+  describe("when the user don't type username or password", () => {
+    it("then the button should be disabled", () => {
+      cy.get("button").should("be.disabled");
+    });
   });
 
-  it("renders the app should find h2 with login", function () {
-    cy.get("h2").should("contain", "Log in");
+  describe("when the user types username but not password", () => {
+    it("then the button should be disabled", () => {
+      cy.get("button").should("be.disabled");
+      cy.get("input").eq(0).type(user).should("have.value", user);
+    });
   });
 
-  it("should find the 1st input and type kevin", function () {
-    cy.get("input").first().type("kevin").should("have.value", "kevin");
+  describe("when the user types password but not username", () => {
+    it("then the button should be disabled", () => {
+      cy.get("button").should("be.disabled");
+      cy.get("input").eq(1).type(password).should("have.value", password);
+    });
   });
 
-  it("should find the 2md input and type kevin", function () {
-    cy.get("input").last().type("kevin").should("have.value", "kevin");
+  describe("when finds 1st and 2nd input", () => {
+    it("Then should write username and password an click on login button", function () {
+      cy.get("input").eq(0).type(user).should("have.value", user);
+      cy.get("input").eq(1).type(password).should("have.value", password);
+      cy.get("button").click();
+    });
   });
 });
 

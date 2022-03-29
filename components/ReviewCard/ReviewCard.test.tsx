@@ -62,7 +62,7 @@ describe("Given a reviewCard component", () => {
   });
 
   describe("when the user clicks on delete button", () => {
-    test("then should be show a toastr with role alert", async () => {
+    test("then should show a toastr with role alert", async () => {
       jest.advanceTimersByTime(1000);
       const mockLocalStorage = {
         getItem: () =>

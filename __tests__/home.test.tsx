@@ -50,29 +50,4 @@ describe("given a home page ", () => {
       expect(luis).toBeInTheDocument();
     });
   });
-
-  // describe("when user clicks on delete button of review luis", () => {
-  //   test("then lui's review should be removed", async () => {
-  //     //askMario
-  //     const WrappedComponent = wrapper.withRedux(Home);
-  //     const context = {
-  //       params: {},
-  //     };
-  //     render(<WrappedComponent />);
-  //     const getSSR = await getServerSideProps(
-  //       context as GetServerSidePropsContext
-  //     );
-
-  //     const reviewName = await screen.findByText(/luis/i);
-
-  //     const deleteButton = await screen.findAllByRole("button", {
-  //       name: "/img/delete.png button",
-  //     });
-  //     userEvent.click(deleteButton[0]);
-
-  //     await waitFor(async () => expect(reviewName).not.toBeInTheDocument());
-
-  //     expect(reviewName).not.toBeInTheDocument();
-  //   });
-  // });
 });
